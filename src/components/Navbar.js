@@ -35,7 +35,7 @@ function Navbar() {
                     <div className="navbar-container container">
                         <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
                             <MdFingerprint className='navbar-icon'/>
-                            Trip Page
+                            TAKE
                         </Link>
                         <div className="menu-icon" onClick={handleClick}>
                         {click ? <FaTimes/> : <FaBars/>}
@@ -50,11 +50,6 @@ function Navbar() {
                                 <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
                                     Services
                                 </Link> 
-                            </li>
-                            <li className='nav-item'>
-                                <Link to='/products' className='nav-links' onClick={closeMobileMenu}>
-                                    Products
-                                </Link>
                             </li>
                             <li className='nav-btn'>
                                 {button ? (
