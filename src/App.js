@@ -3,15 +3,17 @@ import './App.css';
 import Navbar from  './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './components/Footer';
-import Home from './components/pages/HomePage/Home';
+import NewHome from './components/pages/HomePage/NewHome';
+import City from './components/pages/City';
 
 function App() {
   
   return (
     <Router>
-      <Navbar />
+      <Navbar/>
       <Switch>
-        <Route path='/' exact component={Home} />
+        <Route path='/' exact component={NewHome} />
+        <Route path='/city' component={City} />
       </Switch>
       <Footer/>
     </Router>

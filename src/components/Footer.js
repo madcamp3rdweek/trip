@@ -14,17 +14,10 @@ function Footer() {
           JaeWoo Kim, SeungKu Kim
         </p>
       </section>
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
+      <Link to='/' className='social-logo'>
               KAIST
               <i class='fab fa-typo3' />
-            </Link>
-          </div>
-          <small class='website-rights'>KAIST © 2022</small>
-        </div>
-      </section>
+      </Link>
     </div>
   );
 }
