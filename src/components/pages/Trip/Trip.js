@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
-import TripListTemplate from '../Trip/TripList/TripListTemplate';
-import Form from '../Trip/TripList/Form';
-import TripItemList from '../Trip/TripList/TripItemList';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+// import TripListTemplate from '../Trip/TripList/TripListTemplate';
+// import Form from '../Trip/TripList/Form';
+// import TripList from '../Trip/TripList/TripList';
+import './Trip.css';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
+// // a little function to help us with reordering the result
+// const reorder = (list, startIndex, endIndex) => {
+//   const result = Array.from(list);
+//   const [removed] = result.splice(startIndex, 1);
+//   result.splice(endIndex, 0, removed);
+//   return result;
+// };
+
+// const getItemStyle = (isDragging, draggableStyle) => ({
+//   // some basic styles to make the items look a bit nicer
+//   userSelect: "none",
+//   background: isDragging ? "lightgreen" : "grey",
+//   ...draggableStyle
+// });
+
+// const getListStyle = isDraggingOver => ({
+//   background: isDraggingOver ? "lightblue" : "lightgrey"
+// });
 
 
 class Trip extends Component{
@@ -18,6 +37,24 @@ class Trip extends Component{
             { id: 2, text: ' 리액트 소개 3'},
         ]
     }
+
+    // onDragEnd(result) {
+    //     // dropped outside the list
+    //     if (!result.destination) {
+    //     return;
+    //     }
+
+    //     const newPlace = reorder(
+    //     this.state.places,
+    //     result.source.index,
+    //     result.destination.index
+    //     );
+
+    //     this.setState({
+    //         places: newPlace
+    //     });
+    // }
+
 
     handleChange = (e) => {
         this.setState({
@@ -38,7 +75,7 @@ class Trip extends Component{
         });
     }
 
-    handleKeyPress = (e) => {
+    handleKeyPress = (e) => { 
     // 눌려진 키가 Enter 면 handleCreate 호출
         if(e.key === 'Enter') {
             this.handleCreate();    
@@ -46,9 +83,12 @@ class Trip extends Component{
     }
 
     handleRemove = (id) => {
+        console.log("remove clicked");
         const { places } = this.state;
+        // const foo = e.target.getAttribute('text');
+        console.log({id});
         this.setState({
-            places: places.filter(todo => todo.id !== id)
+            places: places.filter(places => places.id !== id)
         });
     }
 
@@ -61,23 +101,68 @@ class Trip extends Component{
             handleRemove
         } = this;
 
+
+
+        // return (
+        //     <>  
+        //         <TripListTemplate form={(
+        //             <Form 
+        //                 value={input}
+        //                 onKeyPress={handleKeyPress}
+        //                 onChange={handleChange}
+        //                 onCreate={handleCreate}
+        //             />
+        //         )}> 
+        //         <DragDropContext onDragEnd={this.onDragEnd}>
+        //         <Droppable droppableId="droppable">
+        //             <TripList places={places} onRemove={handleRemove}/>
+        //         </Droppable>
+        //         </DragDropContext>
+        //         </TripListTemplate>                
+        //     </>
+        // );
+
+
         return (
-            <>  
-                <DndProvider backend={HTML5Backend}>
-                    <TripListTemplate form={(
-                        <Form 
-                            value={input}
-                            onKeyPress={handleKeyPress}
-                            onChange={handleChange}
-                            onCreate={handleCreate}
-                        />
-                    )}>
-                        <TripItemList places={places} onRemove={handleRemove}/>
-                    </TripListTemplate>
-                </DndProvider>
-                
-            </>
-        );
+            <main className="trip-list-template">
+                <div className="title">
+                    여행 경로
+                </div>
+
+                {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
+                <section className="todos-wrapper">
+                    부제
+                </section>
+
+
+                <div>
+                    {places.map(({id, text}) => (
+                        <div className="todo-item">
+                                <div className="remove" onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleRemove(id)}}>&times;</div>
+
+                                <div className="todo-text">
+                                <div>{text}</div>
+                                </div>
+                        </div>
+                        )
+                    )}
+                </div>
+
+                <section className="form-wrapper">
+                    <div className="form">
+                        <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
+                            <div className="create-button" onClick={handleCreate}>
+                                Add
+                            </div>
+                    </div>
+                </section>
+            </main>
+)
+
+
+
     }
 }
 

@@ -7,17 +7,33 @@ class TodoItemList extends Component {
         return this.props.places !== nextProps.places;
     }
 
+    
+
+
     render() {
-    const { places, onToggle, onRemove } = this.props;
+    const { places, onRemove } = this.props;
+
+    const drop = e => {
+      e.preventDefault();
+      const trip_id = e.dataTransfer.getData('trip_id');
+      const trip = document.getElementById(trip_id);
+      trip.style.display = 'block';
+      e.target.appendChild(trip);
+    }
+
+    const dragOver = e => {
+      e.preventDefault();
+    }
+
 
     const placeList = places.map(
         ({id, text}) => (
             <TripItem
                 id={id}
                 text={text}
-                onToggle={onToggle}
                 onRemove={onRemove}
-                key={id}
+                onDrop={drop}
+                onDragOver={dragOver}
             />
         )
     )

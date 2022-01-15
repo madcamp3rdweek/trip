@@ -3,7 +3,23 @@ import './TripItem.css';
 
 class TripItem extends Component {
   render() {
-    const { text, id, onRemove } = this.props;
+    const { text, id, onRemove, onDrop, onDragOver } = this.props;
+
+    const dragStart = e => {
+      const target = e.target;
+
+      e.dataTransfer.setData('trip_id', target.id);
+
+      setTimeout(() => {
+        target.style.display = "none";
+      }, 0);
+    }
+
+    const dragOver = e => {
+      e.stopPropagation();
+    }
+
+
 
     return (
       <div className="todo-item">
@@ -13,7 +29,7 @@ class TripItem extends Component {
           onRemove(id)}
         }>&times;</div>
 
-        <div className="todo-text">
+        <div className="todo-text" draggable="true" onDragStart={dragStart} onDragOver={dragOver}>
           <div>{text}</div>
         </div>
 
