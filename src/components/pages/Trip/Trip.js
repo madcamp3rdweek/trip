@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import TripListTemplate from '../Trip/TripList/TripListTemplate';
 import Form from '../Trip/TripList/Form';
 import TripItemList from '../Trip/TripList/TripItemList';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
 
 class Trip extends Component{
 
@@ -59,17 +62,20 @@ class Trip extends Component{
         } = this;
 
         return (
-            <>
-                <TripListTemplate form={(
-                    <Form 
-                        value={input}
-                        onKeyPress={handleKeyPress}
-                        onChange={handleChange}
-                        onCreate={handleCreate}
-                    />
-                )}>
-                    <TripItemList places={places} onRemove={handleRemove}/>
-                </TripListTemplate>
+            <>  
+                <DndProvider backend={HTML5Backend}>
+                    <TripListTemplate form={(
+                        <Form 
+                            value={input}
+                            onKeyPress={handleKeyPress}
+                            onChange={handleChange}
+                            onCreate={handleCreate}
+                        />
+                    )}>
+                        <TripItemList places={places} onRemove={handleRemove}/>
+                    </TripListTemplate>
+                </DndProvider>
+                
             </>
         );
     }
