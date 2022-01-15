@@ -10,14 +10,13 @@ function Footer() {
         <p className='footer-subscription-heading'>
           All Around Travel WebPage
         </p>
-        <p className='footer-subscription-text'>
+        <div className='footer-subscription-text'>
           JaeWoo Kim, SeungKu Kim
-        </p>
+          <br/>
+          KAIST
+        </div>
       </section>
-      <Link to='/' className='social-logo'>
-              KAIST
-              <i class='fab fa-typo3' />
-      </Link>
+      
     </div>
   );
 }

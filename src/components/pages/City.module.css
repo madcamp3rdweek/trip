@@ -1,2 +1,16 @@
 .intro{
+    opacity:0
+}
+
+/* Scroll Animation (sa, 스크롤 애니메이션) */
+.sa {
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+/* 아래에서 위로 페이드 인 */
+.sa_up {
+    /* transform: translate(0, 100px); */
+    transform: translateY(-70px);
+    opacity: 1;
 }
