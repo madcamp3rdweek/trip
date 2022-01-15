@@ -5,6 +5,7 @@
     cursor: pointer;
     transition: all 0.15s;
     user-select: none;
+    background: #ced4da;
   }
   
   .todo-item:hover {
@@ -54,6 +55,7 @@
   .form-wrapper {
     padding: 1rem;
     border-bottom: 1px solid #495057;
+    background: #dee2e6;
   }
   
   .todos-wrapper {
@@ -62,6 +64,7 @@
 
   .form {
     display: flex;
+    background: #dee2e6;
   }
   
   .form input {
@@ -69,7 +72,7 @@
     font-size: 1.25rem;
     outline: none;
     border: none;
-    border-bottom: 1px solid #c5f6fa;
+    border-bottom: 1px solid #748ffc;
   }
   
   .create-button {
@@ -78,7 +81,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     margin-left: 1rem;
-    background: #22b8cf;
+    background: #748ffc;
     border-radius: 3px;
     color: white;
     font-weight: 600;
@@ -86,5 +89,5 @@
   }
   
   .create-button:hover {
-    background: #3bc9db;
+    background: #1864ab;
   }

@@ -92,13 +92,23 @@ class Trip extends Component{
         });
     }
 
+
+    handleOnDragEnd = (result) => {
+        if(!result.destination ) return;
+        const newPlaces = Array.from(this.state.places);
+        const [reorderedPlaces] = newPlaces.splice(result.source.index, 1);
+        newPlaces.splice(result.destination.index, 0, reorderedPlaces);
+        this.setState({places: newPlaces});
+    }
+
     render(){
         const { input, places } = this.state;
         const {
             handleChange,
             handleCreate,
             handleKeyPress,
-            handleRemove
+            handleRemove,
+            handleOnDragEnd,
         } = this;
 
 
@@ -130,24 +140,38 @@ class Trip extends Component{
                 </div>
 
                 {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
-                <section className="todos-wrapper">
+                {/* <section className="todos-wrapper">
                     부제
-                </section>
+                </section> */}
 
 
                 <div>
-                    {places.map(({id, text}) => (
-                        <div className="todo-item">
-                                <div className="remove" onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleRemove(id)}}>&times;</div>
-
-                                <div className="todo-text">
-                                <div>{text}</div>
-                                </div>
-                        </div>
-                        )
-                    )}
+                    <DragDropContext onDragEnd={handleOnDragEnd}>
+                        <Droppable droppableId="characters">
+                            {(provided) => (
+                                <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+                                    {places.map(({id, text}, index) => (
+                                        <Draggable key={id} draggableId={id.toString()} index = {id}>
+                                            {(provided) => (
+                                                <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                                                    <div className="todo-item">
+                                                            <div className="remove" onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleRemove(id)}}>&times;</div>
+                                                            <div className="todo-text">
+                                                            <div>{text}</div>
+                                                            </div>
+                                                    </div>
+                                                </li>
+                                            )}
+                                        </Draggable>
+                                        )
+                                    )}
+                                    {provided.placeholder}
+                                </ul>
+                            )}
+                        </Droppable>
+                    </DragDropContext>
                 </div>
 
                 <section className="form-wrapper">
