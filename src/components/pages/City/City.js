@@ -18,34 +18,8 @@ const options = {
 function City({match}){
     // const {scrollY} = useScroll();
     const {cityname}= match.params;
-    // const containerTarget1 = useRef(null);
-    // const containerTarget2 = useRef(null);
 
     const {width,height} = useWindowDimensions();
-    // useEffect(()=>{
-    //     const {current:current1} = containerTarget1;
-    //     // const {current:current2} = containerTarget2;
-
-    //     const observer = new IntersectionObserver((entries)=>{
-
-    //         entries.forEach((entry)=>{
-    //             if (entry.intersectionRatio===0){
-    //                 entry.target.classList.remove(styles.sa_up);
-    //             }
-    //             if (entry.isIntersecting){
-    //                 entry.target.opacity = entry.intersectionRatio;
-    //                 entry.target.classList.add(styles.sa_up);
-    
-    //             }
-    //         })
-    //     },options);
-    //     observer.observe(current1);
-    //     // observer.observe(current2);
-    //     return () =>{
-    //         observer.disconnect(current1);
-    //         // observer.disconnect(current2);
-    //     }
-    // },[]);
 
     gsap.registerPlugin(ScrollTrigger);
     const bgvideoRef = useRef(null);
@@ -60,10 +34,11 @@ function City({match}){
     };
 
     useEffect(()=>{
+
+        /* for scrubbing video */
         const bgvideo = bgvideoRef.current;
         bgvideo.pause();
         bgvideo.currentTime=0;
-
         ScrollTrigger.create({
             trigger:videoContainerRef.current,
             scrub:true,
@@ -77,13 +52,16 @@ function City({match}){
                     
                     const videoDuration = bgvideo.duration;
                     console.log(scrollPos,videoDuration);
-                    const videoCurrentTime= 0.11*videoDuration*scrollPos;
+                    const videoCurrentTime= 0.05*videoDuration*scrollPos;
                     if(videoCurrentTime){
                         bgvideo.currentTime=videoCurrentTime;
                     }
                 }
             },
         })
+
+
+        /* for text fading in and out */
         let steps = stepRefs.current;
         steps.forEach((step,i) => {
 
@@ -93,7 +71,7 @@ function City({match}){
                 
                     trigger: step,
                 start: "top top",
-                end: "bottom 50%",
+                end: "bottom top",
                 scrub: true,
                 markers: true,
                 toggleActions: "play reverse play reverse",
@@ -102,7 +80,7 @@ function City({match}){
             });
           
             tl.to(step, { opacity: 1, duration: 6 })
-                .to(step, { opacity: 0, duration:6 }, 6);
+                .to(step, { opacity: 0, duration:2 }, 6);
         });
 
 
@@ -146,58 +124,6 @@ function City({match}){
                 </div>
             </section>
         </div>
-         
-
-
-
-
-
- 
-    {/* <div style={{ height: "100vh" }}/>
-      <Controller>
-        <Scene triggerHook="onEnter" duration="100%">
-          <Tween from={{ x: 0 }} to={{ x: width-200 }}>
-            <div
-              style={{ height: "200px", width: "200px", background: "red" }}
-            />
-          </Tween>
-        </Scene>
-      </Controller>
-     */}
-        
-        {/* <Controller globalSceneOptions={{ triggerHook: "onLeave" }}>
-
-            <Scene pin indicators={true} duration="5000">
-                <div className={styles.title_container}>
-                    <h1  className={[styles.title].join(' ')}>{cityname}</h1>
-                    <img src='/images/busan.jpeg' ref={containerTarget2} className={styles.sa}></img>
-
-                </div>
-            </Scene>
-            
-          <Scene pin>
-            
-            <div className={[styles.panel,styles.blue].join(' ')}>
-              <span className={styles.panel_text}>Panel</span>
-            </div>
-          </Scene>
-          <Scene pin>
-            <div className={[styles.panel,styles.turqoise].join(' ')}>
-              <span className={styles.panel_text}>Panel</span>
-            </div>
-          </Scene>
-          </Controller>
-                <div>
-                    
-                    
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-
-                    <img src='/images/busan.jpeg' ref={containerTarget1} className={styles.sa}></img>
-                </div> */}
-
         </>
     );
 }
