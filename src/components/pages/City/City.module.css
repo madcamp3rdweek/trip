@@ -1,0 +1,137 @@
+.title{
+    position: relative;
+    top:30%;
+    font-size:10rem;
+    color:white;
+}
+.title_container{
+    background:black;
+    height:100vh;
+    text-align:center;
+    
+}
+/* Scroll Animation (sa, 스크롤 애니메이션) */
+.sa {
+    opacity: 0;
+    transition: all 2s ease;
+    z-index: 2;
+}
+
+
+
+/* 아래에서 위로 페이드 인 */
+.sa_up {
+    /* transform: translate(0, 100px); */
+    transform: translateY(-70px);
+    z-index: 2;
+    opacity: 1;
+}
+.panel {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.panel_text {
+    position: relative;
+    display: block;
+    overflow: visible;
+    top: 50%;
+    font-size: 80px;
+}
+  
+  .panel.blue {
+    background-color: #3883d8;
+  }
+  
+  .panel.turqoise {
+    background-color: #38ced7;
+  }
+  
+  .panel.green {
+    background-color: #22d659;
+
+  }
+  
+  .panel.bordeaux {
+    background-color: #953543;
+  }
+  
+
+
+
+
+
+  .background_container{
+      position:fixed;
+      display:flex;
+      align-items:center;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:100vh;
+      overflow:hidden;
+      flex-direction: row;
+  }
+
+  .video_container{
+      flex:1;
+      width:100%;
+      height:100%;
+      display:flex;
+      justify-content:center;
+        
+  }
+  .bgvideo{
+    flex:1;
+    background:black;
+    opacity:1;
+    visibility:visible;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+      
+  }
+
+  .scroll_container{
+      overflow:hidden;
+  }
+
+  .step{
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      position:relative;
+      width:100%;
+      height:100%;
+      opacity:0;
+  }
+
+
+.step_content{
+    display :flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction:column;
+    height:100vh;
+    color:white;
+    font-weight:700;
+    font-size:40px;
+    text-shadow:2px 2px black;
+    opacity:1;
+}
+
+.city_name{
+    display :flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction:column;
+    height:100vh;
+    color:white;
+    font-weight:700;
+    font-size:250px;
+    text-shadow:2px 2px black;
+    opacity:1;
+    z-index:10;
+
+}
