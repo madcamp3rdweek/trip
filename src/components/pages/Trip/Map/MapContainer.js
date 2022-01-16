@@ -3,7 +3,7 @@ import './MapContainer.css';
 
 const { kakao } = window
 
-const MapContainer = ({ searchPlace }) => {
+const MapContainer = ({ searchPlace, handleCreate}) => {
 
   // 검색결과 배열에 담아줌
   const [Places, setPlaces] = useState([])
@@ -61,6 +61,10 @@ const MapContainer = ({ searchPlace }) => {
                     infowindow.close();
                 });
 
+                // kakao.maps.event.addListener(marker, 'click', function() {
+                //     handleCreate;
+                // });
+
                 itemEl.onmouseover =  function () {
                     displayInfowindow(marker, title);
                 };
@@ -68,6 +72,11 @@ const MapContainer = ({ searchPlace }) => {
                 itemEl.onmouseout =  function () {
                     infowindow.close();
                 };
+
+                // itemE1.onclick = function () {
+                //     handleCreate;
+                // }
+
             })(marker, places[i].place_name);
 
             fragment.appendChild(itemEl);
@@ -140,6 +149,10 @@ const MapContainer = ({ searchPlace }) => {
 
         el.innerHTML = itemStr;
         el.className = 'item';
+
+        var destination = places.place_name;
+
+        el.onclick = (()=>handleCreate(destination));
 
         return el;
     }

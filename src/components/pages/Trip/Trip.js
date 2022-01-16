@@ -58,6 +58,20 @@ class Trip extends Component{
     //     });
     // }
 
+    checkStorage = (e) => {
+        if(this.state.input !== e.target.value){
+            this.setState({input : e.target.value })
+        }
+    }
+
+    componentDidMount(){
+        window.addEventListener('storage', this.checkStorage)
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener('storage', this.checkStorage)
+    }
+
 
     handleChange = (e) => {
         this.setState({
@@ -65,14 +79,14 @@ class Trip extends Component{
         });
     }
 
-    handleCreate = () => {
-        const { input, places } = this.state;
+    handleCreate = (loc) => {
+        const { places } = this.state;
         this.setState({
             input: '', // 인풋 비우고
             // concat 을 사용하여 배열에 추가
             places: places.concat({
                 id: this.id++,
-                text: input,
+                text: loc,
                 checked: false
             })
         });
@@ -181,15 +195,15 @@ class Trip extends Component{
                 <section className="form-wrapper">
                     <div className="form">
                         <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
-                            <div className="create-button" onClick={handleCreate}>
+                            {/* <div className="create-button" onClick={handleCreate}>
                                 Add
-                            </div>
+                            </div> */}
                     </div>
                 </section>
             </main>
 
 
-            <LandingPage/>
+            <MapContainer searchPlace={input} handleCreate={handleCreate}/>
         </>    
         )
 
