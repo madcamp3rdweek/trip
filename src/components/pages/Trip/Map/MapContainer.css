@@ -1,0 +1,29 @@
+#result-list li {list-style: none;}
+#result-list .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#result-list .item span {display: block;margin-top:4px;}
+#result-list .item h5, #result-list .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#result-list .item .info{padding:10px 0 10px 55px;}
+#result-list .info .gray {color:#8a8a8a;}
+#result-list .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+
+#result-list .item .info .tel {color:#009900;}
+#result-list .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#result-list .item .marker_1 {background-position: 0 -10px;}
+#result-list .item .marker_2 {background-position: 0 -56px;}
+#result-list .item .marker_3 {background-position: 0 -102px}
+#result-list .item .marker_4 {background-position: 0 -148px;}
+#result-list .item .marker_5 {background-position: 0 -194px;}
+#result-list .item .marker_6 {background-position: 0 -240px;}
+#result-list .item .marker_7 {background-position: 0 -286px;}
+#result-list .item .marker_8 {background-position: 0 -332px;}
+#result-list .item .marker_9 {background-position: 0 -378px;}
+#result-list .item .marker_10 {background-position: 0 -423px;}
+#result-list .item .marker_11 {background-position: 0 -470px;}
+#result-list .item .marker_12 {background-position: 0 -516px;}
+#result-list .item .marker_13 {background-position: 0 -562px;}
+#result-list .item .marker_14 {background-position: 0 -608px;}
+#result-list .item .marker_15 {background-position: 0 -654px;} 
+
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px; font-size: 2rem;}
+#pagination .on {font-weight: bold; cursor: default;color:rgb(234, 250, 6);}
