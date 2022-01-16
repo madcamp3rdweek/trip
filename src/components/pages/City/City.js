@@ -73,7 +73,7 @@ function City({match}){
                     start: "top top",
                     end: "bottom top",
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                     toggleActions: "play reverse play reverse",
                 }
                 
