@@ -64,14 +64,16 @@
 .step_content{
     display :flex;
     align-items: center;
-    justify-content:center;
+    /* justify-content:center; */
     flex-direction:column;
-    height:100vh;
+    height:150vh;
     color:white;
     font-weight:700;
     font-size:60px;
     text-shadow:2px 2px black;
     opacity:1;
+    position:relative;
+    top:35%
 }
 
 .city_name{
@@ -83,9 +85,13 @@
     height:100vh;
     color:white;
     font-weight:700;
-    font-size:200px;
+    font-size:170px;
     text-shadow:2px 2px black;
     opacity:1;
     z-index:10;
 
+}
+
+.city_logo{
+    width:50%;
 }

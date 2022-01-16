@@ -52,7 +52,7 @@ function City({match}){
                     
                     const videoDuration = bgvideo.duration;
                     console.log(scrollPos,videoDuration);
-                    const videoCurrentTime= 0.05*videoDuration*scrollPos;
+                    const videoCurrentTime= 0.03*videoDuration*scrollPos;
                     if(videoCurrentTime){
                         bgvideo.currentTime=videoCurrentTime;
                     }
@@ -70,17 +70,17 @@ function City({match}){
                     pin: true,
                 
                     trigger: step,
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-                markers: true,
-                toggleActions: "play reverse play reverse",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                    markers: true,
+                    toggleActions: "play reverse play reverse",
                 }
                 
             });
           
-            tl.to(step, { opacity: 1, duration: 6 })
-                .to(step, { opacity: 0, duration:2 }, 6);
+            tl.to(step, { y:-40, opacity: 1, duration: 6 })
+                .to(step, { y:-40, opacity: 0, duration:4 }, 6);
         });
 
 
@@ -99,7 +99,7 @@ function City({match}){
         <>
         <div className={styles.background_container}>
             <div ref={videoContainerRef} className={styles.video_container}>
-                <video ref={bgvideoRef} src="/Seoul2.mp4" type="video/mp4" className={styles.bgvideo}></video>
+                <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgvideo}></video>
             </div>    
         </div>
         <div className={styles.scroll_container}>
@@ -110,7 +110,7 @@ function City({match}){
             </section>
             <section ref={addToStepRefs} className={styles.step}>
                 <div className={styles.step_content}>
-                    <h3>I'm</h3>
+                    <img className={styles.city_logo}src='/images/seoul_logo_2.png'></img>
                 </div>
             </section>
             <section ref={addToStepRefs} className={styles.step}>
