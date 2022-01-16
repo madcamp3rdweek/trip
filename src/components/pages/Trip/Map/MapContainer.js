@@ -10,27 +10,28 @@ const MapContainer = ({ searchPlace }) => {
   useEffect(() => {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 })
     var markers = []
-    const container = document.getElementById('myMap')
+    const container = document.getElementById('map')
     const options = {
       center: new kakao.maps.LatLng(37.566826, 126.9786567),
       level: 3,
     }
-    const map = new kakao.maps.Map(container, options)
+    const map = new kakao.maps.Map(container, options);
 
-    const ps = new kakao.maps.services.Places()
+    const ps = new kakao.maps.services.Places();
 
-    ps.keywordSearch(searchPlace, placesSearchCB)
+    ps.keywordSearch(searchPlace, placesSearchCB);
 
     function placesSearchCB(data, status, pagination) {
       if (status === kakao.maps.services.Status.OK) {
         displayPlaces(data);
         // 페이지 목록 보여주는 displayPagination() 추가
-        displayPagination(pagination)
+        displayPagination(pagination);
       }
     }
 
     function displayPlaces(places) {
         var listEl = document.getElementById('result-list');
+        var menuEl = document.getElementById('menu_wrap');
         var fragment = document.createDocumentFragment();
         var bounds = new kakao.maps.LatLngBounds();
         var listStr = '';
@@ -73,7 +74,9 @@ const MapContainer = ({ searchPlace }) => {
         }
 
     // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+    if(listEl == null) return;
     listEl.appendChild(fragment);
+    menuEl.scrollTop = 0;
 
     // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
     map.setBounds(bounds);
@@ -154,7 +157,8 @@ const MapContainer = ({ searchPlace }) => {
     }
 
     // 검색결과 목록의 자식 Element를 제거하는 함수입니다
-    function removeAllChildNods(el) {   
+    function removeAllChildNods(el) {
+        if(el == null) return; 
         while (el.hasChildNodes()) {
             el.removeChild (el.lastChild);
         }
@@ -193,36 +197,35 @@ const MapContainer = ({ searchPlace }) => {
 
   }, [searchPlace])
 
+//   return (
+//     <div>
+//       <div
+//         id="map"
+//         style={{
+//           width: '500px',
+//           height: '500px',
+//           position: 'relative',
+//           overflow: 'hidden',
+//         }}
+//       ></div>
+//       <hr/>
+//       <ul id="result-list"></ul>
+
+//         <div id="pagination"></div>
+
+//     </div>
+//   )
+
+
   return (
-    <div>
-      <div
-        id="myMap"
-        style={{
-          width: '500px',
-          height: '500px',
-        }}
-      ></div>
-      <div id="result-list">
-        {Places.map((item, i) => (
-          <div key={i} style={{ marginTop: '20px' }}>
-            <span>{i + 1}</span>
-            <div>
-              <h5>{item.place_name}</h5>
-              {item.road_address_name ? (
-                <div>
-                  <span>{item.road_address_name}</span>
-                  <span>{item.address_name}</span>
-                </div>
-              ) : (
-                <span>{item.address_name}</span>
-              )}
-              <span>{item.phone}</span>
-            </div>
-          </div>
-        ))}
+    <div class="map_wrap">
+    <div id="map"></div>
+
+    <div id="menu_wrap" class="bg_white">
+        <ul id="placesList"></ul>
         <div id="pagination"></div>
-      </div>
     </div>
+</div>
   )
 }
 
