@@ -5,6 +5,9 @@ import React, { Component } from 'react';
 import './Trip.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import MapContainer from './Map/MapContainer';
+import LandingPage from './Map/LandingPage';
+
 // // a little function to help us with reordering the result
 // const reorder = (list, startIndex, endIndex) => {
 //   const result = Array.from(list);
@@ -133,57 +136,66 @@ class Trip extends Component{
         // );
 
 
-        return (
-            <main className="trip-list-template">
-                <div className="title">
-                    여행 경로
-                </div>
+        // return (
+        //     <>
+        //     <main className="trip-list-template">
+        //         <div className="title">
+        //             여행 경로
+        //         </div>
 
-                {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
-                {/* <section className="todos-wrapper">
-                    부제
-                </section> */}
+        //         {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
+        //         {/* <section className="todos-wrapper">
+        //             부제
+        //         </section> */}
 
 
-                <div>
-                    <DragDropContext onDragEnd={handleOnDragEnd}>
-                        <Droppable droppableId="characters">
-                            {(provided) => (
-                                <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                                    {places.map(({id, text}, index) => (
-                                        <Draggable key={id} draggableId={id.toString()} index = {id}>
-                                            {(provided) => (
-                                                <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                                                    <div className="todo-item">
-                                                            <div className="remove" onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                handleRemove(id)}}>&times;</div>
-                                                            <div className="todo-text">
-                                                            <div>{text}</div>
-                                                            </div>
-                                                    </div>
-                                                </li>
-                                            )}
-                                        </Draggable>
-                                        )
-                                    )}
-                                    {provided.placeholder}
-                                </ul>
-                            )}
-                        </Droppable>
-                    </DragDropContext>
-                </div>
+        //         <div>
+        //             <DragDropContext onDragEnd={handleOnDragEnd}>
+        //                 <Droppable droppableId="characters">
+        //                     {(provided) => (
+        //                         <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+        //                             {places.map(({id, text}, index) => (
+        //                                 <Draggable key={id} draggableId={id.toString()} index = {id}>
+        //                                     {(provided) => (
+        //                                         <li className="characters-entry"{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+        //                                             <div className="todo-item">
+        //                                                     <div className="remove" onClick={(e) => {
+        //                                                         e.stopPropagation();
+        //                                                         handleRemove(id)}}>&times;</div>
+        //                                                     <div className="todo-text">
+        //                                                     <div>{text}</div>
+        //                                                     </div>
+        //                                             </div>
+        //                                         </li>
+        //                                     )}
+        //                                 </Draggable>
+        //                                 )
+        //                             )}
+        //                             {provided.placeholder}
+        //                         </ul>
+        //                     )}
+        //                 </Droppable>
+        //             </DragDropContext>
+        //         </div>
 
-                <section className="form-wrapper">
-                    <div className="form">
-                        <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
-                            <div className="create-button" onClick={handleCreate}>
-                                Add
-                            </div>
-                    </div>
-                </section>
-            </main>
-)
+        //         <section className="form-wrapper">
+        //             <div className="form">
+        //                 <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
+        //                     <div className="create-button" onClick={handleCreate}>
+        //                         Add
+        //                     </div>
+        //             </div>
+        //         </section>
+        //     </main>
+
+
+        //     <MapContainer/>
+        // </>    
+        // )
+
+        return(
+            <LandingPage/>
+        )
 
 
 
