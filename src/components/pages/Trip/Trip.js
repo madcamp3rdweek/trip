@@ -136,67 +136,62 @@ class Trip extends Component{
         // );
 
 
-        // return (
-        //     <>
-        //     <main className="trip-list-template">
-        //         <div className="title">
-        //             여행 경로
-        //         </div>
+        return (
+            <>
+            <main className="trip-list-template">
+                <div className="title">
+                    여행 경로
+                </div>
 
-        //         {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
-        //         {/* <section className="todos-wrapper">
-        //             부제
-        //         </section> */}
-
-
-        //         <div>
-        //             <DragDropContext onDragEnd={handleOnDragEnd}>
-        //                 <Droppable droppableId="characters">
-        //                     {(provided) => (
-        //                         <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-        //                             {places.map(({id, text}, index) => (
-        //                                 <Draggable key={id} draggableId={id.toString()} index = {id}>
-        //                                     {(provided) => (
-        //                                         <li className="characters-entry"{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-        //                                             <div className="todo-item">
-        //                                                     <div className="remove" onClick={(e) => {
-        //                                                         e.stopPropagation();
-        //                                                         handleRemove(id)}}>&times;</div>
-        //                                                     <div className="todo-text">
-        //                                                     <div>{text}</div>
-        //                                                     </div>
-        //                                             </div>
-        //                                         </li>
-        //                                     )}
-        //                                 </Draggable>
-        //                                 )
-        //                             )}
-        //                             {provided.placeholder}
-        //                         </ul>
-        //                     )}
-        //                 </Droppable>
-        //             </DragDropContext>
-        //         </div>
-
-        //         <section className="form-wrapper">
-        //             <div className="form">
-        //                 <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
-        //                     <div className="create-button" onClick={handleCreate}>
-        //                         Add
-        //                     </div>
-        //             </div>
-        //         </section>
-        //     </main>
+                {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
+                {/* <section className="todos-wrapper">
+                    부제
+                </section> */}
 
 
-        //     <MapContainer/>
-        // </>    
-        // )
+                <div>
+                    <DragDropContext onDragEnd={handleOnDragEnd}>
+                        <Droppable droppableId="characters">
+                            {(provided) => (
+                                <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+                                    {places.map(({id, text}, index) => (
+                                        <Draggable key={id} draggableId={id.toString()} index = {id}>
+                                            {(provided) => (
+                                                <li className="characters-entry"{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                                                    <div className="todo-item">
+                                                            <div className="remove" onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleRemove(id)}}>&times;</div>
+                                                            <div className="todo-text">
+                                                            <div>{text}</div>
+                                                            </div>
+                                                    </div>
+                                                </li>
+                                            )}
+                                        </Draggable>
+                                        )
+                                    )}
+                                    {provided.placeholder}
+                                </ul>
+                            )}
+                        </Droppable>
+                    </DragDropContext>
+                </div>
 
-        return(
+                <section className="form-wrapper">
+                    <div className="form">
+                        <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
+                            <div className="create-button" onClick={handleCreate}>
+                                Add
+                            </div>
+                    </div>
+                </section>
+            </main>
+
+
             <LandingPage/>
+        </>    
         )
-
 
 
     }
