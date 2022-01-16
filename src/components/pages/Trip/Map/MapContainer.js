@@ -194,7 +194,7 @@ const MapContainer = ({ searchPlace }) => {
   }, [searchPlace])
 
   return (
-    <div>
+    <div className="mapContainer">
       <div
         id="myMap"
         style={{
@@ -202,9 +202,10 @@ const MapContainer = ({ searchPlace }) => {
           height: '400px',
         }}
       ></div>
+      <div className="placeList">
         <ul id="result-list"></ul>        
         <div id="pagination"></div>
-      
+      </div>
     </div>
   )
 }
