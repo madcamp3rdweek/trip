@@ -34,7 +34,6 @@ function City({match}){
 
 
     /*background img1 */
-    const img1Ref = useRef(null);
     const img1ContainerRef = useRef(null);
     /* content1 steps */
     const content1StepRefs = useRef([]);
@@ -44,8 +43,15 @@ function City({match}){
             content1StepRefs.current.push(el);
         }
     };
+    /*content2 iimg */
+    const img2ContainerRef = useRef(null);
+    /*content2 */
+    const content2Ref = useRef(null);
 
-
+    /*content3 img */
+    const img3ContainerRef = useRef(null);
+    /*content3 */
+    const content3Ref = useRef(null);
 
     useEffect(()=>{
 
@@ -156,7 +162,7 @@ function City({match}){
             scrollTrigger: {
                 trigger: content1Steps[0],
                 start: "top bottom",
-                end: "+=50000",
+                end: "+=100000",
                 scrub: true,
                 // markers: true,
                 toggleActions: "play reverse play reverse",
@@ -174,9 +180,9 @@ function City({match}){
                 
                     trigger: step,
                     start: "top top",
-                    end: "bottom top",
+                    end: "+=6000",
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                     toggleActions: "play reverse play reverse",
                 }
                 
@@ -186,6 +192,41 @@ function City({match}){
                 .to(step, { y:-40, opacity: 0, duration:4 }, 6);
         });
         
+        /* content 2 */
+        // tramsition place content1 to the left and new content2 to from the right.
+        const tlc1bye = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: content2Ref.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+                markers: true,
+                onLeave: function(){
+                    bgvideo.pause();
+                },
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+        tlc1bye.to(img1ContainerRef.current, { x:-50, opacity: 0, duration: 10 })
+                .to(img2ContainerRef.current, { x:-50, opacity: 1, duration: 10 })
+                .to(img2ContainerRef.current, { x:-50, opacity: 0, duration:10 }, 6);
+        
+        const tlc2 = gsap.timeline( { 
+            scrollTrigger: {
+                    pin: true,
+                    trigger: content2Ref.current,
+                    start: "top top",
+                    end: "+=6000",
+                    scrub: true,
+                    // markers: true,
+                    toggleActions: "play reverse play reverse",
+                }         
+        });
+            
+        tlc2.to(content2Ref.current, { x:-40, opacity: 1, duration: 6 })
+                    .to(content2Ref.current, { x:-40, opacity: 0, duration:4 }, 6);
+
 
 
 
@@ -253,7 +294,7 @@ function City({match}){
         
         <div className={styles.main_container}>
             <div ref={img1ContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
-                <img ref={img1Ref} className={styles.bgmedia} src='/images/gyeongbokgung.jpg'></img>
+                <img className={styles.bgmedia} src='/images/gyeongbokgung.jpg'></img>
             </div>    
             <div className={styles.scroll_container}>
 
@@ -263,16 +304,40 @@ function City({match}){
                         <div className={styles.content_details}>조선 왕조 제일의 법궁으로, 북으로는 북악산, 정문인 광화문 앞으로는 넓은 육조거리(지금의 세종로)가 펼쳐져, 왕도인 한양의 도시계획의 중심이 되었던 문화재입니다. 도심 속 펼쳐진 고궁의 분위기를 만끽해보세요.</div>
                     </div>
                 </section>
-                <section ref={addToContentStepRefs} className={styles.step}>
+            </div>
+        </div>
+
+
+        <div className={styles.main_container}>
+            <div ref={img2ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
+                <img  className={styles.bgmedia} src='/images/NSeoulTower.jpg'></img>
+            </div>    
+            <div className={styles.scroll_container}>
+
+                <section ref={content2Ref} className={styles.step}>
                     <div className={styles.content1_step}>
-                        desciption2
-                    </div>
-                </section></div>
-                <section ref={addToContentStepRefs} className={styles.step}>
-                    <div className={styles.content1_step}>
-                        desciption3
+                    <div className={styles.content_titles}>N서울타워</div>
+                        <div className={styles.content_details}>도심 속 우뚝 솟아 있는 N서울타워입니다. 서울 시내 전 지역에서 바라보이는 타워에서 아름다운 서울의 전경을 감상하세요.  </div>
                     </div>
                 </section>
+            </div>
+        </div>
+
+
+
+        <div className={styles.main_container}>
+            <div  ref={img3ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
+                <img  className={styles.bgmedia} src='/images/banpohanriver.png'></img>
+            </div>    
+            <div className={styles.scroll_container}>
+
+                <section ref={content3Ref} className={styles.step}>
+                    <div className={styles.content1_step}>
+                        <div className={styles.content_titles}>반포한강공원</div>
+                        <div className={styles.content_details}>반포대교 남단 부근에 위치한 한강공원으로, 달빛무지개분수, 세빛둥둥섬 등 다양한 볼거리와 한강의 아름다운 풍경을 자랑합니다. 한강의 평화로운 분위기를 즐기고 싶다면 반포한강공원에 방문해보세요.</div>
+                    </div>
+                </section>
+            </div>
         </div>
         </>
     );
