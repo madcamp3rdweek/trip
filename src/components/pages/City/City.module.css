@@ -1,21 +1,12 @@
-.title{
-    position: relative;
-    top:30%;
-    font-size:10rem;
-    color:white;
+.opacity{
+    opacity:0;
 }
-.title_container{
-    background:black;
-    height:100vh;
-    text-align:center;
-   
-}
-
 
 
 
 
   .background_container{
+      background-color: black;
       position:fixed;
       display:flex;
       align-items:center;

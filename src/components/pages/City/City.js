@@ -42,9 +42,8 @@ function City({match}){
         ScrollTrigger.create({
             trigger:videoContainerRef.current,
             scrub:true,
-            pin:videoContainerRef.current,
-            start:'center center',
-            end : '+=100000',
+            start:"center center",
+            end : "+=100000",
             markers:false,
             onUpdate: function(self){
                 if(bgvideo){
@@ -52,17 +51,33 @@ function City({match}){
                     
                     const videoDuration = bgvideo.duration;
                     console.log(scrollPos,videoDuration);
-                    const videoCurrentTime= 0.03*videoDuration*scrollPos;
+                    const videoCurrentTime= videoDuration*scrollPos;
                     if(videoCurrentTime){
-                        bgvideo.currentTime=videoCurrentTime;
+                        bgvideo.currentTime=0.03*videoCurrentTime;
                     }
                 }
             },
         })
+        let steps = stepRefs.current;
+        console.log(steps)
+        const tl0 = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: steps[0],
+                start: "top bottom",
+                end: "+=100000",
+                scrub: true,
+                // markers: true,
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+        tl0.to(videoContainerRef.current, { opacity: 1, duration: 0.5 })
+            .to(videoContainerRef.current, { y:-40, opacity: 0, duration:4 }, 6);
+
 
 
         /* for text fading in and out */
-        let steps = stepRefs.current;
+        
         steps.forEach((step,i) => {
 
             const tl = gsap.timeline( { 
@@ -82,23 +97,51 @@ function City({match}){
             tl.to(step, { y:-40, opacity: 1, duration: 6 })
                 .to(step, { y:-40, opacity: 0, duration:4 }, 6);
         });
+        
 
-
-        // gsap.to(bgvideo,{
-        //     scrollTrigger:{
-        //         scrub:true
-        //     },
-        //     scale: 1.5
-        // })
-
+        const tl1 = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: steps[steps.length-1],
+                start: "top top",
+                end: "bottom center",
+                scrub: true,
+                markers: true,
+                onLeave: function(){
+                    bgvideo.pause();
+                },
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+    tl1.to(videoContainerRef.current, { opacity: 0, duration: 10 });
     },[videoContainerRef,bgvideoRef]);
     
     
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return(
         <>
         <div className={styles.background_container}>
-            <div ref={videoContainerRef} className={styles.video_container}>
+            <div ref={videoContainerRef} className={[styles.opacity, styles.video_container].join(' ')}>
                 <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgvideo}></video>
             </div>    
         </div>
@@ -120,7 +163,12 @@ function City({match}){
             </section>
             <section ref={addToStepRefs} className={styles.step}>
                 <div className={styles.step_content}>
-                    <h3>K</h3>
+                    <h3>KKKKKKKkK</h3>
+                </div>
+            </section>
+            <section ref={addToStepRefs} className={styles.step}>
+                <div className={styles.step_content}>
+                    <h3>Last Element</h3>
                 </div>
             </section>
         </div>
