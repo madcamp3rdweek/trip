@@ -34,13 +34,14 @@ import {cards} from './MyData';
 //     }];
 
 function Cards() {
+    
     return (
         <div className = {styles.cards__container}>
             <h1 className={styles.cards__title}>멋진 도시들을 방문해 보세요</h1>
 
             <div className={styles.cards}>
                 {cards.map((item,i)=>(
-                    <CardItem imgSrc={item.src} name={item.name} key={i}></CardItem>
+                    <CardItem imgSrc={item.src} name={item.name} engName={item.engName} key={i}></CardItem>
                 ))}
         </div>
         </div>

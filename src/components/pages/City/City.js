@@ -13,7 +13,9 @@ import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 function City({match}){
     // const {scrollY} = useScroll();
-    const {cityname}= match.params;
+    const {cityname,engName}= match.params;
+    console.log(match.params);
+    console.log(engName);
 
     const {width,height} = useWindowDimensions();
 
@@ -57,6 +59,9 @@ function City({match}){
     /*content4 */
     const content4Ref = useRef(null);
 
+    /*other usefull links */
+    const linkSectionRef = useRef(null);
+
 
 
 
@@ -71,13 +76,12 @@ function City({match}){
             scrub:true,
             start:"center center",
             end : "+=100000",
-            markers:false,
+            // markers:false,
             onUpdate: function(self){
                 if(bgvideo){
                     const scrollPos=self.progress;
                     
                     const videoDuration = bgvideo.duration;
-                    console.log(scrollPos,videoDuration);
                     const videoCurrentTime= videoDuration*scrollPos;
                     if(videoCurrentTime){
                         bgvideo.currentTime=0.03*videoCurrentTime;
@@ -171,7 +175,7 @@ function City({match}){
                 start: "top bottom",
                 end: "+=100000",
                 scrub: true,
-                markers: true,
+                // markers: true,
                 toggleActions: "play reverse play reverse",
             }
         });
@@ -184,7 +188,6 @@ function City({match}){
             const tl = gsap.timeline( { 
                 scrollTrigger: {
                     pin: true,
-                
                     trigger: step,
                     start: "top top",
                     end: "+=6000",
@@ -192,7 +195,6 @@ function City({match}){
                     // markers: true,
                     toggleActions: "play reverse play reverse",
                 }
-                
             });
         
             tl.to(step, { y:-40, opacity: 1, duration: 6 })
@@ -201,13 +203,13 @@ function City({match}){
         
         /* content 2 */
         // transition place content1 to the left and new content2 to from the right.
-        const tlc1bye = gsap.timeline( { 
+        const tlc1bye = gsap.timeline({ 
             scrollTrigger: {
                 trigger: content2Ref.current,
                 start: "top bottom",
                 end: "bottom top",
                 scrub: true,
-                markers: true,
+                // markers: true,
                 onLeave: function(){
                     bgvideo.pause();
                 },
@@ -302,7 +304,18 @@ function City({match}){
 
 
         /* need more content */
-
+        const tlc4bye = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: linkSectionRef.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+                // markers: true,
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+        tlc4bye.to(img4ContainerRef.current, { y:-20, opacity: 0, duration: 10 })
 
 
 
@@ -338,7 +351,7 @@ function City({match}){
         <div className={styles.main_container}>
             <div className={styles.background_container}>
                 <div ref={videoContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
-                    <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgmedia}></video>
+                    <video ref={bgvideoRef} src={`/${engName}.mp4`} type="video/mp4" className={styles.bgmedia}></video>
                 </div>    
             </div>
             <div className={styles.scroll_container}>
@@ -349,7 +362,7 @@ function City({match}){
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <img className={styles.city_logo}src='/images/seoul_logo_2.png'></img>
+                        <img className={styles.city_logo} src={`/images/${engName}_logo.png`}></img>
                     </div>
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
@@ -428,11 +441,24 @@ function City({match}){
                 <section ref={content4Ref} className={styles.step}>
                     <div className={styles.content1_step}>
                         <div className={styles.content_titles}>광장시장</div>
-                        <div className={styles.content_details}>광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장</div>
+                        <div className={styles.content_details}>종로에 위치한 서울 최대 규모의 재래시장입니다.정겨운 분위기와 다양한 먹거리를 즐기고 싶다면 지금 광장시장을 방문해 보세요</div>
                     </div>
                 </section>
             </div>
         </div>
+
+        <div className={styles.main_container}>
+            <div className={styles.scroll_container}>
+                <section ref={linkSectionRef} className={styles.step}>
+                    <div className={styles.content1_step}>
+                        <div className={styles.content_titles}></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+
         </>
     );
 }

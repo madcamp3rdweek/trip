@@ -15,7 +15,7 @@ function App() {
       <Navbar/>
       <Switch>
         <Route path='/' exact component={NewHome} />
-        <Route path='/city/:cityname' component={City} />
+        <Route path='/city/:cityname/:engName' component={City} />
       </Switch>
       <Footer/>
     </Router>
