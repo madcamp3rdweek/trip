@@ -22,8 +22,6 @@ function City({match}){
     /*background video */
     const bgvideoRef = useRef(null);
     const videoContainerRef = useRef(null);
-
-
     /* intro steps */
     const stepRefs = useRef([]);
     stepRefs.current = [];
@@ -33,10 +31,19 @@ function City({match}){
         }
     };
 
+
+
     /*background img1 */
     const img1Ref = useRef(null);
     const img1ContainerRef = useRef(null);
-
+    /* content1 steps */
+    const content1StepRefs = useRef([]);
+    content1StepRefs.current = [];
+    const addToContentStepRefs = el => {
+        if (el && !content1StepRefs.current.includes(el)) {
+            content1StepRefs.current.push(el);
+        }
+    };
 
 
 
@@ -120,7 +127,35 @@ function City({match}){
             }
         });
       
-    tl1.to(videoContainerRef.current, { opacity: 0, duration: 10 });
+        tl1.to(videoContainerRef.current, { opacity: 0, duration: 10 });
+        
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        /*content1 start */
+
+
+        let content1Steps = content1StepRefs.current;
+        console.log(content1Steps);
+        const tlc1 = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: content1Steps[0],
+                start: "top bottom",
+                end: "+=100000",
+                scrub: true,
+                // markers: true,
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+        tlc1.to(img1ContainerRef.current, { opacity: 1, duration: 0.5 })
+             .to(img1ContainerRef.current, { y:-40, opacity: 0, duration:4 }, 6);
+
+        
+
+
+
+
     },[videoContainerRef,bgvideoRef]);
     
     
@@ -149,8 +184,8 @@ function City({match}){
         <>
         <div className={styles.main_container}>
             <div className={styles.background_container}>
-                <div ref={videoContainerRef} className={[styles.opacity, styles.video_container].join(' ')}>
-                    <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgvideo}></video>
+                <div ref={videoContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
+                    <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgmedia}></video>
                 </div>    
             </div>
             <div className={styles.scroll_container}>
@@ -183,19 +218,30 @@ function City({match}){
         </div>   
         
         <div className={styles.main_container}>
-            <div className={[styles.opacity, styles.video_container].join(' ')}></div>    
+            <div ref={img1ContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
+                <img ref={img1Ref} className={styles.bgmedia} src='/images/gyeongbokgung.jpg'></img>
+            </div>    
             <div className={styles.scroll_container}>
-                <section  >
-                    <div>
-                        {/*empty */}
+                <section>
+                    <div style={{color:"white"}}>
+                        HIHELLo
                     </div>
                 </section>
-                {/* <section ref={addToStepRefs} className={styles.step}>
+                <section ref={addToContentStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <img className={styles.city_logo}src='/images/seoul_logo_2.png'></img>
+                        desciption1
                     </div>
-                </section> */}
-            </div>
+                </section>
+                <section ref={addToContentStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        desciption2
+                    </div>
+                </section></div>
+                <section ref={addToContentStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        desciption3
+                    </div>
+                </section>
         </div>
         </>
     );
