@@ -164,7 +164,7 @@ function City({match}){
                 start: "top bottom",
                 end: "+=100000",
                 scrub: true,
-                // markers: true,
+                markers: true,
                 toggleActions: "play reverse play reverse",
             }
         });
@@ -193,7 +193,7 @@ function City({match}){
         });
         
         /* content 2 */
-        // tramsition place content1 to the left and new content2 to from the right.
+        // transition place content1 to the left and new content2 to from the right.
         const tlc1bye = gsap.timeline( { 
             scrollTrigger: {
                 trigger: content2Ref.current,
@@ -210,7 +210,7 @@ function City({match}){
       
         tlc1bye.to(img1ContainerRef.current, { x:-50, opacity: 0, duration: 10 })
                 .to(img2ContainerRef.current, { x:-50, opacity: 1, duration: 10 })
-                .to(img2ContainerRef.current, { x:-50, opacity: 0, duration:10 }, 6);
+
         
         const tlc2 = gsap.timeline( { 
             scrollTrigger: {
@@ -225,8 +225,43 @@ function City({match}){
         });
             
         tlc2.to(content2Ref.current, { x:-40, opacity: 1, duration: 6 })
-                    .to(content2Ref.current, { x:-40, opacity: 0, duration:4 }, 6);
+                    .to(content2Ref.current, { x:-40, opacity: 0, duration:0.5 }, 6);
 
+
+        
+        /* content 3 */
+        // tramsition place content2 to the left and new content3 to from the right.
+        const tlc2bye = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: content3Ref.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+                // markers: true,
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+        tlc2bye.to(img2ContainerRef.current, { x:-50, opacity: 0, duration: 10 })
+                .to(img3ContainerRef.current, { x:-50, opacity: 1, duration: 10 })
+        
+        const tlc3= gsap.timeline( { 
+            scrollTrigger: {
+                    pin: true,
+                    trigger: content3Ref.current,
+                    start: "top top",
+                    end: "+=6000",
+                    scrub: true,
+                    // markers: true,
+                    toggleActions: "play reverse play reverse",
+                }         
+        });
+            
+        tlc3.to(content3Ref.current, { x:-40, opacity: 1, duration: 6 })
+                    .to(content3Ref.current, { x:-40, opacity: 0, duration:4 }, 6);
+
+
+                    
 
 
 
