@@ -35,9 +35,6 @@ class Trip extends Component{
     state = {
         input: '',
         places: [
-            { id: 0, text: ' 리액트 소개 1'},
-            { id: 1, text: ' 리액트 소개 2'},
-            { id: 2, text: ' 리액트 소개 3'},
         ]
     }
 
@@ -169,7 +166,7 @@ class Trip extends Component{
                             {(provided) => (
                                 <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
                                     {places.map(({id, text}, index) => (
-                                        <Draggable key={id} draggableId={id.toString()} index = {id}>
+                                        <Draggable key={id} draggableId={id.toString()} index={index}>
                                             {(provided) => (
                                                 <li className="characters-entry"{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                                                     <div className="todo-item">
@@ -204,6 +201,10 @@ class Trip extends Component{
 
 
             <MapContainer searchPlace={input} handleCreate={handleCreate}/>
+
+            {/* <iframe title="gmap" src="http://map.naver.com/v5/directions/14130545.426978473,4516777.295707526,%EC%8B%A0%EC%B4%8C%EC%97%AD%202%ED%98%B8%EC%84%A0,240,SUBWAY_STATION/14142772.203249756,4510945.592839651,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%EA%B0%95%EB%82%A8%EC%84%9C%EC%B4%88%EA%B5%90%EC%9C%A1%EC%A7%80%EC%9B%90%EC%B2%AD,11630860,PLACE_POI/-/transit?c=14132969.0971959,4514456.1464421,12,0,0,0,dh" width="600" height="450"></iframe> */}
+
+
         </>    
         )
 
