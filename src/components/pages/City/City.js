@@ -150,7 +150,26 @@ function City({match}){
       
         tlc1.to(img1ContainerRef.current, { opacity: 1, duration: 0.5 })
              .to(img1ContainerRef.current, { y:-40, opacity: 0, duration:4 }, 6);
+        
+        content1Steps.forEach((step,i) => {
 
+            const tl = gsap.timeline( { 
+                scrollTrigger: {
+                    pin: true,
+                
+                    trigger: step,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                    // markers: true,
+                    toggleActions: "play reverse play reverse",
+                }
+                
+            });
+        
+            tl.to(step, { y:-40, opacity: 1, duration: 6 })
+                .to(step, { y:-40, opacity: 0, duration:4 }, 6);
+        });
         
 
 
@@ -201,7 +220,7 @@ function City({match}){
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <h3>JW</h3>
+                        <h3>과거와 현재가 공존하는 도시</h3>
                     </div>
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
@@ -222,11 +241,7 @@ function City({match}){
                 <img ref={img1Ref} className={styles.bgmedia} src='/images/gyeongbokgung.jpg'></img>
             </div>    
             <div className={styles.scroll_container}>
-                <section>
-                    <div style={{color:"white"}}>
-                        HIHELLo
-                    </div>
-                </section>
+
                 <section ref={addToContentStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
                         desciption1
