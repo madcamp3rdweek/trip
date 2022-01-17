@@ -93,20 +93,35 @@ function City({match}){
         /* for text fading in and out */
         
         steps.forEach((step,i) => {
-
-            const tl = gsap.timeline( { 
-                scrollTrigger: {
-                    pin: true,
-                
-                    trigger: step,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                    // markers: true,
-                    toggleActions: "play reverse play reverse",
-                }
-                
-            });
+            let tl;
+            if (i==steps.length-1){
+                tl = gsap.timeline( { 
+                    scrollTrigger: {
+                        pin: true,
+                    
+                        trigger: step,
+                        start: "top top",
+                        end: "+=10000",
+                        scrub: true,
+                        // markers: true,
+                        toggleActions: "play reverse play reverse",
+                    }
+                });
+            }else{
+                tl = gsap.timeline( { 
+                    scrollTrigger: {
+                        pin: true,
+                    
+                        trigger: step,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true,
+                        // markers: true,
+                        toggleActions: "play reverse play reverse",
+                    }
+                });
+            }   
+        
           
             tl.to(step, { y:-40, opacity: 1, duration: 6 })
                 .to(step, { y:-40, opacity: 0, duration:4 }, 6);
@@ -119,7 +134,7 @@ function City({match}){
                 start: "top top",
                 end: "bottom center",
                 scrub: true,
-                markers: true,
+                // markers: true,
                 onLeave: function(){
                     bgvideo.pause();
                 },
@@ -141,7 +156,7 @@ function City({match}){
             scrollTrigger: {
                 trigger: content1Steps[0],
                 start: "top bottom",
-                end: "+=100000",
+                end: "+=50000",
                 scrub: true,
                 // markers: true,
                 toggleActions: "play reverse play reverse",
@@ -161,7 +176,7 @@ function City({match}){
                     start: "top top",
                     end: "bottom top",
                     scrub: true,
-                    // markers: true,
+                    markers: true,
                     toggleActions: "play reverse play reverse",
                 }
                 
@@ -225,12 +240,12 @@ function City({match}){
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <h3>KKKKKKKkK</h3>
+                        <h3>서울을 즐겨보세요</h3>
                     </div>
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <h3>Last Element</h3>
+                        <h3>관광 명소</h3>
                     </div>
                 </section>
             </div>
@@ -243,17 +258,18 @@ function City({match}){
             <div className={styles.scroll_container}>
 
                 <section ref={addToContentStepRefs} className={styles.step}>
-                    <div className={styles.step_content}>
-                        desciption1
+                    <div className={styles.content1_step}>
+                        <div className={styles.content_titles}>경복궁</div>
+                        <div className={styles.content_details}>조선 왕조 제일의 법궁으로, 북으로는 북악산, 정문인 광화문 앞으로는 넓은 육조거리(지금의 세종로)가 펼쳐져, 왕도인 한양의 도시계획의 중심이 되었던 문화재입니다. 도심 속 펼쳐진 고궁의 분위기를 만끽해보세요.</div>
                     </div>
                 </section>
                 <section ref={addToContentStepRefs} className={styles.step}>
-                    <div className={styles.step_content}>
+                    <div className={styles.content1_step}>
                         desciption2
                     </div>
                 </section></div>
                 <section ref={addToContentStepRefs} className={styles.step}>
-                    <div className={styles.step_content}>
+                    <div className={styles.content1_step}>
                         desciption3
                     </div>
                 </section>
