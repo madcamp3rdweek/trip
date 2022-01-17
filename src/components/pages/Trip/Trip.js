@@ -38,23 +38,6 @@ class Trip extends Component{
         ]
     }
 
-    // onDragEnd(result) {
-    //     // dropped outside the list
-    //     if (!result.destination) {
-    //     return;
-    //     }
-
-    //     const newPlace = reorder(
-    //     this.state.places,
-    //     result.source.index,
-    //     result.destination.index
-    //     );
-
-    //     this.setState({
-    //         places: newPlace
-    //     });
-    // }
-
     checkStorage = (e) => {
         if(this.state.input !== e.target.value){
             this.setState({input : e.target.value })
@@ -191,7 +174,7 @@ class Trip extends Component{
 
                 <section className="form-wrapper">
                     <div className="form">
-                        <input value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
+                        <input value={input} onChange={handleChange}/>
                             {/* <div className="create-button" onClick={handleCreate}>
                                 Add
                             </div> */}
