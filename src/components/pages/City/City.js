@@ -7,13 +7,9 @@ import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {Controller, Scene} from 'react-scrollmagic';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
-// import {useScroll} from '../../Scroll';
 
-const options = {
-    root: null,
-    rootMargin:"0px",
-    threshold:[0, 0.25, 0.5 , 0.75,1]
-};
+
+
 
 function City({match}){
     // const {scrollY} = useScroll();
@@ -22,9 +18,13 @@ function City({match}){
     const {width,height} = useWindowDimensions();
 
     gsap.registerPlugin(ScrollTrigger);
+
+    /*background video */
     const bgvideoRef = useRef(null);
     const videoContainerRef = useRef(null);
 
+
+    /* intro steps */
     const stepRefs = useRef([]);
     stepRefs.current = [];
     const addToStepRefs = el => {
@@ -32,6 +32,13 @@ function City({match}){
             stepRefs.current.push(el);
         }
     };
+
+    /*background img1 */
+    const img1Ref = useRef(null);
+    const img1ContainerRef = useRef(null);
+
+
+
 
     useEffect(()=>{
 
@@ -140,37 +147,55 @@ function City({match}){
 
     return(
         <>
-        <div className={styles.background_container}>
-            <div ref={videoContainerRef} className={[styles.opacity, styles.video_container].join(' ')}>
-                <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgvideo}></video>
-            </div>    
-        </div>
-        <div className={styles.scroll_container}>
-            <section  >
-                <div className={styles.city_name}>
-                    <h3>{cityname}</h3>
-                </div>
-            </section>
-            <section ref={addToStepRefs} className={styles.step}>
-                <div className={styles.step_content}>
-                    <img className={styles.city_logo}src='/images/seoul_logo_2.png'></img>
-                </div>
-            </section>
-            <section ref={addToStepRefs} className={styles.step}>
-                <div className={styles.step_content}>
-                    <h3>JW</h3>
-                </div>
-            </section>
-            <section ref={addToStepRefs} className={styles.step}>
-                <div className={styles.step_content}>
-                    <h3>KKKKKKKkK</h3>
-                </div>
-            </section>
-            <section ref={addToStepRefs} className={styles.step}>
-                <div className={styles.step_content}>
-                    <h3>Last Element</h3>
-                </div>
-            </section>
+        <div className={styles.main_container}>
+            <div className={styles.background_container}>
+                <div ref={videoContainerRef} className={[styles.opacity, styles.video_container].join(' ')}>
+                    <video ref={bgvideoRef} src={`/Seoul2.mp4`} type="video/mp4" className={styles.bgvideo}></video>
+                </div>    
+            </div>
+            <div className={styles.scroll_container}>
+                <section  >
+                    <div className={styles.city_name}>
+                        <h3>{cityname}</h3>
+                    </div>
+                </section>
+                <section ref={addToStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        <img className={styles.city_logo}src='/images/seoul_logo_2.png'></img>
+                    </div>
+                </section>
+                <section ref={addToStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        <h3>JW</h3>
+                    </div>
+                </section>
+                <section ref={addToStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        <h3>KKKKKKKkK</h3>
+                    </div>
+                </section>
+                <section ref={addToStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        <h3>Last Element</h3>
+                    </div>
+                </section>
+            </div>
+        </div>   
+        
+        <div className={styles.main_container}>
+            <div className={[styles.opacity, styles.video_container].join(' ')}></div>    
+            <div className={styles.scroll_container}>
+                <section  >
+                    <div>
+                        {/*empty */}
+                    </div>
+                </section>
+                {/* <section ref={addToStepRefs} className={styles.step}>
+                    <div className={styles.step_content}>
+                        <img className={styles.city_logo}src='/images/seoul_logo_2.png'></img>
+                    </div>
+                </section> */}
+            </div>
         </div>
         </>
     );
