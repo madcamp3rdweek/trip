@@ -52,6 +52,13 @@ function City({match}){
     const img3ContainerRef = useRef(null);
     /*content3 */
     const content3Ref = useRef(null);
+    /*content4 img */
+    const img4ContainerRef = useRef(null);
+    /*content4 */
+    const content4Ref = useRef(null);
+
+
+
 
     useEffect(()=>{
 
@@ -260,8 +267,37 @@ function City({match}){
         tlc3.to(content3Ref.current, { x:-40, opacity: 1, duration: 6 })
                     .to(content3Ref.current, { x:-40, opacity: 0, duration:4 }, 6);
 
+        /* content 4*/
+        // tramsition place content3 to the left and new content4 to from the right.
+        const tlc3bye = gsap.timeline( { 
+            scrollTrigger: {
+                trigger: content4Ref.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+                // markers: true,
+                toggleActions: "play reverse play reverse",
+            }
+        });
+      
+        tlc3bye.to(img3ContainerRef.current, { x:-50, opacity: 0, duration: 10 })
+                .to(img4ContainerRef.current, { x:-50, opacity: 1, duration: 10 })
+        
+        const tlc4= gsap.timeline( { 
+            scrollTrigger: {
+                    pin: true,
+                    trigger: content4Ref.current,
+                    start: "top top",
+                    end: "+=6000",
+                    scrub: true,
+                    // markers: true,
+                    toggleActions: "play reverse play reverse",
+                }         
+        });
+            
+        tlc4.to(content4Ref.current, { x:-40, opacity: 1, duration: 6 })
+                    .to(content4Ref.current, { x:-40, opacity: 0, duration:4 }, 6);
 
-                    
 
 
 
@@ -370,6 +406,22 @@ function City({match}){
                     <div className={styles.content1_step}>
                         <div className={styles.content_titles}>반포한강공원</div>
                         <div className={styles.content_details}>반포대교 남단 부근에 위치한 한강공원으로, 달빛무지개분수, 세빛둥둥섬 등 다양한 볼거리와 한강의 아름다운 풍경을 자랑합니다. 한강의 평화로운 분위기를 즐기고 싶다면 반포한강공원에 방문해보세요.</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <div className={styles.main_container}>
+            <div  ref={img4ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
+                <img  className={styles.bgmedia} src='/images/gwangjangmarket.jpeg'></img>
+            </div>    
+            <div className={styles.scroll_container}>
+
+                <section ref={content4Ref} className={styles.step}>
+                    <div className={styles.content1_step}>
+                        <div className={styles.content_titles}>광장시장</div>
+                        <div className={styles.content_details}>광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장광장시장</div>
                     </div>
                 </section>
             </div>
