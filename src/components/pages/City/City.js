@@ -297,6 +297,13 @@ function City({match}){
             
         tlc4.to(content4Ref.current, { x:-40, opacity: 1, duration: 6 })
                     .to(content4Ref.current, { x:-40, opacity: 0, duration:4 }, 6);
+        
+
+
+
+        /* need more content */
+
+
 
 
 
@@ -414,7 +421,7 @@ function City({match}){
 
         <div className={styles.main_container}>
             <div  ref={img4ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
-                <img  className={styles.bgmedia} src='/images/gwangjangmarket.jpeg'></img>
+                <img  className={styles.bgmedia} src='/images/gwangjangmarket.jpg'></img>
             </div>    
             <div className={styles.scroll_container}>
 
