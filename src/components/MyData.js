@@ -22,7 +22,8 @@ export const cards=[{
             detail:'종로에 위치한 서울 최대 규모의 재래시장입니다.정겨운 분위기와 다양한 먹거리를 즐기고 싶다면 지금 광장시장을 방문해 보세요',
             img:'gwangjangmarket.jpg',
             },
-    ],
+   ],
+   isReady:true,
 
     },
     {
@@ -30,7 +31,7 @@ export const cards=[{
         name:'부산',
         engName:'busan',
         videoConstant:0.5,
-        intro:['돼지국밥의 도시','부산을 즐겨보세요'],
+        intro:['대한민국 제 2의 심장','부산을 즐겨보세요'],
         place:[{title:'해운대',
                 detail:'조선 왕조 제일의 법궁으로, 북으로는 북악산, 정문인 광화문 앞으로는 넓은 육조거리(지금의 세종로)가 펼쳐져, 왕도인 한양의 도시계획의 중심이 되었던 문화재입니다. 도심 속 펼쳐진 고궁의 분위기를 만끽해보세요',
                 img:'gyeongbokgung.jpg',
@@ -47,7 +48,8 @@ export const cards=[{
                 detail:'종로에 위치한 서울 최대 규모의 재래시장입니다.정겨운 분위기와 다양한 먹거리를 즐기고 싶다면 지금 광장시장을 방문해 보세요',
                 img:'gwangjangmarket.jpg',
                 },
-    ],
+        ],
+        isReady:false,
 
     },
     {
@@ -72,27 +74,32 @@ export const cards=[{
             detail:'태고의 신비를 그대로 간직한 산, 한라산입니다. 섬 중앙에 우뚝 솟은 웅장한 자태와 ㅜㅁ철 따라 바뀌는 형형색색의 자연경관을 온몸으로 느껴보세요.',
             img:'halla.jpeg',
             },
-    ],
+        ],
+        isReady:true,
     },
     {
         src:'/images/yeosu.jpg',
         name:'여수',
         engName:'yeosu',
+        isReady:false,
     },
     {
         src:'/images/gangneung.jpg',
         name:'강릉',
         engName:'gangneung',
+        isReady:false,
     },
     {
         src:'/images/jeonju.jpg',
         name:'전주',
         engName:'jeonju',
+        isReady:false,
     },
     {
         src:'/images/gyeongju.jpg',
         name:'경주',
         engName:'gyeongju',
+        isReady:false,
     }
 ];
 

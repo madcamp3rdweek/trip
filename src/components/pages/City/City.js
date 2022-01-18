@@ -16,7 +16,7 @@ function City({match}){
     // const {scrollY} = useScroll();
     const {cityname}= match.params;
     const cityData = cards.find(city => city.name===cityname);
-    const {engName,intro,place,videoConstant}=cityData;
+    const {isReady,engName,intro,place,videoConstant}=cityData;
     console.log(cityData);
 
     const {width,height} = useWindowDimensions();
@@ -68,6 +68,9 @@ function City({match}){
 
 
     useEffect(()=>{
+        if (!isReady){
+            return;
+        }
 
         /* for scrubbing video */
         const bgvideo = bgvideoRef.current;
@@ -363,7 +366,10 @@ function City({match}){
 
     return(
         <>
-        <div className={styles.main_container}>
+
+        {isReady?
+        <>
+            <div className={styles.main_container}>
             <div className={styles.background_container}>
                 <div ref={videoContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
                     <video ref={bgvideoRef} src={`/${engName}.mp4`} type="video/mp4" className={styles.bgmedia}></video>
@@ -396,9 +402,9 @@ function City({match}){
                     </div>
                 </section>
             </div>
-        </div>   
-        
-        <div className={styles.main_container}>
+            </div>   
+
+            <div className={styles.main_container}>
             <div ref={img1ContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
                 <img className={styles.bgmedia} src={`/images/${place[0].img}`}></img>
             </div>    
@@ -411,10 +417,10 @@ function City({match}){
                     </div>
                 </section>
             </div>
-        </div>
+            </div>
 
 
-        <div className={styles.main_container}>
+            <div className={styles.main_container}>
             <div ref={img2ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
                 <img  className={styles.bgmedia} src={`/images/${place[1].img}`}></img>
             </div>    
@@ -427,11 +433,11 @@ function City({match}){
                     </div>
                 </section>
             </div>
-        </div>
+            </div>
 
 
 
-        <div className={styles.main_container}>
+            <div className={styles.main_container}>
             <div  ref={img3ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
                 <img  className={styles.bgmedia} src={`/images/${place[2].img}`}></img>
             </div>    
@@ -444,10 +450,10 @@ function City({match}){
                     </div>
                 </section>
             </div>
-        </div>
+            </div>
 
 
-        <div className={styles.main_container}>
+            <div className={styles.main_container}>
             <div  ref={img4ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
                 <img  className={styles.bgmedia} src={`/images/${place[3].img}`}></img>
             </div>    
@@ -460,13 +466,13 @@ function City({match}){
                     </div>
                 </section>
             </div>
-        </div>
+            </div>
 
-        <div className={styles.main_container}>
+            <div className={styles.main_container}>
             <div className={styles.scroll_container}>
                 <section ref={linkSectionRef} className={styles.step}>
                 {/* <section ref={linkSectionRef} className={styles.link_section}>
-                     <svg height="100%">
+                    <svg height="100%">
                         <circle cx="120" cy="150" r="10" stroke="none" fill="white" />
                         <path className={styles.vertical_line} d="M 120 150 l 0 1000" stroke="white" stroke-width="3" fill="none"/>
                         <path className={styles.horizontal_line} d={`M 120 200 l 1200 0`} stroke="white" stroke-width="1" fill="none"/>
@@ -488,10 +494,18 @@ function City({match}){
                             TAKE
                     </div>
                 </section>
-            
-            </div>
-        </div>
 
+            </div>
+            </div>
+        </>
+        :
+        <h1 style={{height:"100%"}}>준비중입니다</h1>
+        
+    
+    
+    
+    }
+        
 
 
         </>
