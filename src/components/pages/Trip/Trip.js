@@ -128,16 +128,11 @@ class Trip extends Component{
 
         return (
             <>
+            <div className="trip-page">
             <main className="trip-list-template">
                 <div className="title">
                     여행 경로
                 </div>
-
-                {/* <section className="todos-wrapper" onDrop={drop} onDragOver={dragOver}> */}
-                {/* <section className="todos-wrapper">
-                    부제
-                </section> */}
-
 
                 <div>
                     <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -176,13 +171,11 @@ class Trip extends Component{
                             </div> */}
                     </div>
                 </section>
-            </main>
-
-
             <MapContainer searchPlace={input} handleCreate={handleCreate}/>
-
+            </main>
+        
             <TripInfo places={this.state.places}/>
-
+            </div>
         </>    
         )
 

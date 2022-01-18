@@ -207,6 +207,7 @@ const MapContainer = ({ searchPlace, handleCreate}) => {
   }, [searchPlace])
 
   return (
+    <div className="mapWrap">
     <div className="mapContainer">
       <div
         id="myMap"
@@ -219,6 +220,7 @@ const MapContainer = ({ searchPlace, handleCreate}) => {
         <ul id="result-list"></ul>        
         <div id="pagination"></div>
       </div>
+    </div>
     </div>
   )
 }

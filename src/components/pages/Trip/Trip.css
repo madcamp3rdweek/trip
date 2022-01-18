@@ -1,3 +1,14 @@
+.trip-page {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.trip-list-wrap {
+  border-radius: 20px;
+}
+
+
 .todo-item {
     padding: 1.5rem;
     display: flex;
@@ -5,7 +16,7 @@
     cursor: pointer;
     transition: all 0.15s;
     user-select: none;
-    background: #ced4da;
+    background: #4682be;
   }
   
   .todo-item:hover {
@@ -53,9 +64,10 @@
   }
   
   .form-wrapper {
-    padding: 1rem;
+    padding: 0.5rem;
     border-bottom: 1px solid #495057;
     background: #dee2e6;
+    border-radius: 15px;
   }
   
   .todos-wrapper {
@@ -74,29 +86,10 @@
     border: none;
     border-bottom: 1px solid #748ffc;
   }
-  
-  .create-button {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: 1rem;
-    background: #748ffc;
-    border-radius: 3px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  .create-button:hover {
-    background: #1864ab;
-  }
 
   .characters-entry {
     display: flex;
     align-items: center;
     border: solid 2px #d0d0d0;
-    border-radius: .2em;
-    padding: .8em 0 .8em 0;
-    margin-bottom: 1em;
+    border-radius: .5em;
   }
