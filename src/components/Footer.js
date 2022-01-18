@@ -10,21 +10,13 @@ function Footer() {
         <p className='footer-subscription-heading'>
           All Around Travel WebPage
         </p>
-        <p className='footer-subscription-text'>
+        <div className='footer-subscription-text'>
           JaeWoo Kim, SeungKu Kim
-        </p>
-      </section>
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
-              KAIST
-              <i class='fab fa-typo3' />
-            </Link>
-          </div>
-          <small class='website-rights'>KAIST © 2022</small>
+          <br/>
+          KAIST
         </div>
       </section>
+      
     </div>
   );
 }

@@ -7,7 +7,10 @@ video {
   }
 
   .home__hero-section {
-    padding: 160px 0;
+    padding-top: 40px;
+    padding-bottom:40px;
+    padding-left: 200px;
+    padding-right: 200px;
   }
 
   .home__hero-row {
@@ -61,7 +64,7 @@ video {
   }
 
   .darkBg {
-    background-color: #1c2237;
+    background:linear-gradient(90deg, #023e8a 0%, #0077b6 100%);
   }
 
   .home__hero-subtitle {
@@ -73,7 +76,9 @@ video {
 
   .home__hero-img-wrapper {
     max-width:555px;
+
   }
+  
 
   .home__hero-img{
     max-width: 95%;
