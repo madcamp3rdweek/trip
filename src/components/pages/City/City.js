@@ -8,6 +8,7 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 // import {Controller, Scene} from 'react-scrollmagic';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 import {cards} from '../../MyData';
+import { MdFingerprint } from 'react-icons/md';
 
 
 
@@ -320,7 +321,7 @@ function City({match}){
 
 
 
-        const tlcircle= gsap.timeline( { 
+        const tlLinkSection= gsap.timeline( { 
             scrollTrigger: {
                     pin: true,
                     trigger: linkSectionRef.current,
@@ -332,7 +333,7 @@ function City({match}){
                 }         
         });
             
-        tlcircle.to(linkSectionRef.current, {  opacity: 1, duration: 6 })
+        tlLinkSection.to(linkSectionRef.current, {  opacity: 1, duration: 6 })
                     .to(linkSectionRef.current, { opacity: 0, duration:4 }, 6);
 
 
@@ -463,17 +464,29 @@ function City({match}){
 
         <div className={styles.main_container}>
             <div className={styles.scroll_container}>
-                <section ref={linkSectionRef} className={styles.link_section}>
-                     <svg height="100%">
+                <section ref={linkSectionRef} className={styles.step}>
+                {/* <section ref={linkSectionRef} className={styles.link_section}> */}
+                     {/* <svg height="100%">
                         <circle cx="120" cy="150" r="10" stroke="none" fill="white" />
                         <path className={styles.vertical_line} d="M 120 150 l 0 1000" stroke="white" stroke-width="3" fill="none"/>
-                        return <path className={styles.horizontal_line} d={`M 120 200 l 700 0`} stroke="white" stroke-width="1" fill="none"/>
-
+                        <path className={styles.horizontal_line} d={`M 120 200 l 1200 0`} stroke="white" stroke-width="1" fill="none"/>
+                        <text className ={styles.link} x="150" y={`${120}`}>서울관광공사</text>
                         {[1,2,3,4,5].map((i)=>{
-                            return <path className={styles.horizontal_line} d={`M 120 ${200+150*i} l 700 0`} stroke="white" stroke-width="1" fill="none"/>
+                            
+                            return (
+                                <>
+                                    <a className ={styles.link} x="150" y={`${150+150*i}`} href="http://www.google.com">
+                                        <text className ={styles.link} x="150" y={`${150+150*i}`}>서울관광공사</text>
+                                    </a>
+                                    <path className={styles.horizontal_line} d={`M 120 ${200+150*i} l 1200 0`} stroke="white" stroke-width="1" fill="none"/>
+                                </>
+                            );
                         })}
-                        
-                    </svg>
+                    </svg> */}
+                    <div className={styles.last_content}>
+                            <MdFingerprint className='navbar-icon'/>
+                            TAKE
+                    </div>
                 </section>
             
             </div>
