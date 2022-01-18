@@ -4,8 +4,8 @@
 ##### 국내여행을 위한 종합 여행 웹사이트
 React를 사용한 프론트엔드 기반의 웹페이지
 # Members
-## [김재우](https://github.com/jjwwk0)
-## [김승구](https://github.com/seungkukim)
+### [김재우](https://github.com/jjwwk0)
+### [김승구](https://github.com/seungkukim)
 
 ## Main functions
 #### 여행 루트 작성 및 길찾기 기능
