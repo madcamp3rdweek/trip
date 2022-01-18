@@ -172,8 +172,12 @@ class Trip extends Component{
                 </section>
             <MapContainer searchPlace={input} handleCreate={handleCreate}/>
             </main>
-            
+
+            <div className="route-wrapper">
+
+            <div className="route-info-title">여행 경로</div>
             <TripInfo places={this.state.places}/>
+            </div>
             </div>
         </>    
         )

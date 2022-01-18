@@ -95,3 +95,28 @@
   .characters-entry:hover {
     background: #e3fafc;
   }
+
+  .route-info-title {
+    width: 750px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
+    text-align: center;
+    background-color: #e9ecef;
+    padding: 15px 5px 5px 10px;
+    font-size: 50px;
+  }
+
+  .route-wrapper {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .vl {
+      border-left: 1px solid black;
+      height: 1000px;
+      position: absolute;
+      left: 45%;
+      margin-left: -3px;
+      top: 0;
+  }
