@@ -4,10 +4,9 @@
   justify-content: space-evenly;
 }
 
-.trip-list-wrap {
-  border-radius: 20px;
+.title {
+  border-radius: .3em;
 }
-
 
 .todo-item {
     padding: 1.5rem;
@@ -16,7 +15,7 @@
     cursor: pointer;
     transition: all 0.15s;
     user-select: none;
-    background: #4682be;
+    /* background: #4682be; */
   }
   
   .todo-item:hover {
@@ -92,4 +91,7 @@
     align-items: center;
     border: solid 2px #d0d0d0;
     border-radius: .5em;
+  }
+  .characters-entry:hover {
+    background: #e3fafc;
   }

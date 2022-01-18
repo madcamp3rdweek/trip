@@ -130,8 +130,9 @@ class Trip extends Component{
             <>
             <div className="trip-page">
             <main className="trip-list-template">
+                <div className="trip-list-wrap">
                 <div className="title">
-                    여행 경로
+                    여행 경로 만들기
                 </div>
 
                 <div>
@@ -162,18 +163,16 @@ class Trip extends Component{
                         </Droppable>
                     </DragDropContext>
                 </div>
+                </div>
 
                 <section className="form-wrapper">
                     <div className="form">
-                        <input value={input} onChange={handleChange}/>
-                            {/* <div className="create-button" onClick={handleCreate}>
-                                Add
-                            </div> */}
+                        <input placeholder="여행지 입력" value={input} onChange={handleChange}/>
                     </div>
                 </section>
             <MapContainer searchPlace={input} handleCreate={handleCreate}/>
             </main>
-        
+            
             <TripInfo places={this.state.places}/>
             </div>
         </>    
