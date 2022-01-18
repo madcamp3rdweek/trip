@@ -327,7 +327,7 @@ function City({match}){
                     start: "top top",
                     end: "+=6000",
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                     toggleActions: "play reverse play reverse",
                 }         
         });
