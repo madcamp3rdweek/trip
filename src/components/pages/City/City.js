@@ -465,8 +465,8 @@ function City({match}){
         <div className={styles.main_container}>
             <div className={styles.scroll_container}>
                 <section ref={linkSectionRef} className={styles.step}>
-                {/* <section ref={linkSectionRef} className={styles.link_section}> */}
-                     {/* <svg height="100%">
+                {/* <section ref={linkSectionRef} className={styles.link_section}>
+                     <svg height="100%">
                         <circle cx="120" cy="150" r="10" stroke="none" fill="white" />
                         <path className={styles.vertical_line} d="M 120 150 l 0 1000" stroke="white" stroke-width="3" fill="none"/>
                         <path className={styles.horizontal_line} d={`M 120 200 l 1200 0`} stroke="white" stroke-width="1" fill="none"/>
