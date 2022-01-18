@@ -7,15 +7,16 @@ import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {Controller, Scene} from 'react-scrollmagic';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
-
+import {cards} from '../../MyData';
 
 
 
 function City({match}){
     // const {scrollY} = useScroll();
-    const {cityname,engName}= match.params;
-    console.log(match.params);
-    console.log(engName);
+    const {cityname}= match.params;
+    const cityData = cards.find(city => city.name===cityname);
+    const {engName,intro,place,videoConstant}=cityData;
+    console.log(cityData);
 
     const {width,height} = useWindowDimensions();
 
@@ -84,7 +85,7 @@ function City({match}){
                     const videoDuration = bgvideo.duration;
                     const videoCurrentTime= videoDuration*scrollPos;
                     if(videoCurrentTime){
-                        bgvideo.currentTime=0.03*videoCurrentTime;
+                        bgvideo.currentTime=videoConstant*videoCurrentTime;
                     }
                 }
             },
@@ -367,12 +368,12 @@ function City({match}){
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <h3>과거와 현재가 공존하는 도시</h3>
+                        <h3>{intro[0]}</h3>
                     </div>
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
                     <div className={styles.step_content}>
-                        <h3>서울을 즐겨보세요</h3>
+                        <h3>{intro[1]}</h3>
                     </div>
                 </section>
                 <section ref={addToStepRefs} className={styles.step}>
@@ -385,14 +386,14 @@ function City({match}){
         
         <div className={styles.main_container}>
             <div ref={img1ContainerRef} className={[styles.opacity, styles.media_container].join(' ')}>
-                <img className={styles.bgmedia} src='/images/gyeongbokgung.jpg'></img>
+                <img className={styles.bgmedia} src={`/images/${place[0].img}`}></img>
             </div>    
             <div className={styles.scroll_container}>
 
                 <section ref={addToContentStepRefs} className={styles.step}>
                     <div className={styles.content1_step}>
-                        <div className={styles.content_titles}>경복궁</div>
-                        <div className={styles.content_details}>조선 왕조 제일의 법궁으로, 북으로는 북악산, 정문인 광화문 앞으로는 넓은 육조거리(지금의 세종로)가 펼쳐져, 왕도인 한양의 도시계획의 중심이 되었던 문화재입니다. 도심 속 펼쳐진 고궁의 분위기를 만끽해보세요.</div>
+                        <div className={styles.content_titles}>{place[0].title}</div>
+                        <div className={styles.content_details}>{place[0].detail}</div>
                     </div>
                 </section>
             </div>
@@ -401,14 +402,14 @@ function City({match}){
 
         <div className={styles.main_container}>
             <div ref={img2ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
-                <img  className={styles.bgmedia} src='/images/NSeoulTower.jpg'></img>
+                <img  className={styles.bgmedia} src={`/images/${place[1].img}`}></img>
             </div>    
             <div className={styles.scroll_container}>
 
                 <section ref={content2Ref} className={styles.step}>
                     <div className={styles.content1_step}>
-                    <div className={styles.content_titles}>N서울타워</div>
-                        <div className={styles.content_details}>도심 속 우뚝 솟아 있는 N서울타워입니다. 서울 시내 전 지역에서 바라보이는 타워에서 아름다운 서울의 전경을 감상하세요.  </div>
+                        <div className={styles.content_titles}>{place[1].title}</div>
+                        <div className={styles.content_details}>{place[1].detail}</div>
                     </div>
                 </section>
             </div>
@@ -418,14 +419,14 @@ function City({match}){
 
         <div className={styles.main_container}>
             <div  ref={img3ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
-                <img  className={styles.bgmedia} src='/images/banpohanriver.png'></img>
+                <img  className={styles.bgmedia} src={`/images/${place[2].img}`}></img>
             </div>    
             <div className={styles.scroll_container}>
 
                 <section ref={content3Ref} className={styles.step}>
                     <div className={styles.content1_step}>
-                        <div className={styles.content_titles}>반포한강공원</div>
-                        <div className={styles.content_details}>반포대교 남단 부근에 위치한 한강공원으로, 달빛무지개분수, 세빛둥둥섬 등 다양한 볼거리와 한강의 아름다운 풍경을 자랑합니다. 한강의 평화로운 분위기를 즐기고 싶다면 반포한강공원에 방문해보세요.</div>
+                        <div className={styles.content_titles}>{place[2].title}</div>
+                        <div className={styles.content_details}>{place[2].detail}</div>
                     </div>
                 </section>
             </div>
@@ -434,14 +435,14 @@ function City({match}){
 
         <div className={styles.main_container}>
             <div  ref={img4ContainerRef} className={[styles.opacity, styles.media_container, styles.media_container_right].join(' ')}>
-                <img  className={styles.bgmedia} src='/images/gwangjangmarket.jpg'></img>
+                <img  className={styles.bgmedia} src={`/images/${place[3].img}`}></img>
             </div>    
             <div className={styles.scroll_container}>
 
                 <section ref={content4Ref} className={styles.step}>
-                    <div className={styles.content1_step}>
-                        <div className={styles.content_titles}>광장시장</div>
-                        <div className={styles.content_details}>종로에 위치한 서울 최대 규모의 재래시장입니다.정겨운 분위기와 다양한 먹거리를 즐기고 싶다면 지금 광장시장을 방문해 보세요</div>
+                <div className={styles.content1_step}>
+                        <div className={styles.content_titles}>{place[3].title}</div>
+                        <div className={styles.content_details}>{place[3].detail}</div>
                     </div>
                 </section>
             </div>
