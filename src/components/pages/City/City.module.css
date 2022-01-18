@@ -164,3 +164,28 @@
 .vertical_line{
     stroke-dasharray: 5;
 }
+
+.link{
+    color:#fff;
+}
+.link:link{
+    color:#fff;
+}
+.link:visited{
+    color:#fff;
+}
+
+.last_content{
+    display :flex;
+    align-items: center;
+    /* justify-content:center; */
+    flex-direction:column;
+    height:150vh;
+    color:white;
+    font-weight:700;
+    font-size:120px;
+    text-shadow:2px 2px black;
+    opacity:1;
+    position:relative;
+    top:25%
+}

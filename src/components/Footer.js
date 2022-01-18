@@ -8,10 +8,10 @@ function Footer() {
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          All Around Travel WebPage
+          TAKE : Take your own time.
         </p>
         <div className='footer-subscription-text'>
-          JaeWoo Kim, SeungKu Kim
+          MadCamp 3rd Week
           <br/>
           KAIST
         </div>
