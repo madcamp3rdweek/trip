@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# MadCamp 2021-2022 Winter Project Week3
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Take: Take your own time
+##### 국내여행을 위한 종합 여행 웹사이트
+React를 사용한 프론트엔드 기반의 웹페이지
+# Members
+## [김재우](https://github.com/jjwwk0)
+## [김승구](https://github.com/seungkukim)
 
-## Available Scripts
+## Main functions
+#### 여행 루트 작성 및 길찾기 기능
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 여행지별 소개 페이지
+  Home 화면에서 각 지역들의 카드를 클릭하면 도시 소개 페이지로 이동한다. 각 페이지는 스크롤 반응형 페이지로, Scrolltrigger 라이브러리를 사용하여 페이지의 특정 요소가 애니메이션을 trigger 하는 형식으로 구현하였다.
+  각 페이지의 시작화면에서 스크롤을 시작하면, 백그라운드에 지역 관련 비디오가 재생되어 보다 생동감 있는 페이지가 되도록 하였다. 스크롤 이벤트를 감지하면 백그라운드의 비디오 프레임 이미지를 바꾸어주는 방식으로, Scrolltrigger가 이를 관장한다.
+ 스크롤을 내릴 시 Scrolltrigger가 문구를 감지하면 fade-in, fade-out을 통해 부드럽게 문구가 나타나도록 구현하였다. 이 때 문구가 평소 스크롤 하듯이 올라가 버린다면 너무 빠르게 지나가 집중을 분산시키는 부작용이 있었다. 이를 해결하기 위해 문구들을 잠시 고정시킨 뒤 fade-out 하는 방식으로 문제점을 해결하였다.
+관광명소를 나열하는 section의 경우, 스크롤 시 백그라운드 이미지가 fade-out 되며 좌측으로 나가고, 새로운 이미지가 fade-in되며 좌측으로 들어오는 애니메이션을 추가하여 횡 스크롤의 느낌이 나도록 구현하였다.
