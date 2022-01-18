@@ -152,7 +152,7 @@ const MapContainer = ({ searchPlace, handleCreate}) => {
 
         var destination = places.place_name;
 
-        el.onclick = (()=>handleCreate(destination));
+        el.onclick = (()=>handleCreate(destination, places.y, places.x));
 
         return el;
     }

@@ -7,6 +7,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import MapContainer from './Map/MapContainer';
 import LandingPage from './Map/LandingPage';
+import TripInfo from './Map/TripInfo';
 
 // // a little function to help us with reordering the result
 // const reorder = (list, startIndex, endIndex) => {
@@ -59,7 +60,7 @@ class Trip extends Component{
         });
     }
 
-    handleCreate = (loc) => {
+    handleCreate = (loc, lat, long) => {
         const { places } = this.state;
         this.setState({
             input: '', // 인풋 비우고
@@ -67,17 +68,13 @@ class Trip extends Component{
             places: places.concat({
                 id: this.id++,
                 text: loc,
+                latitude: lat,
+                longitude: long,
                 checked: false
             })
         });
     }
 
-    handleKeyPress = (e) => { 
-    // 눌려진 키가 Enter 면 handleCreate 호출
-        if(e.key === 'Enter') {
-            this.handleCreate();    
-        }
-    }
 
     handleRemove = (id) => {
         console.log("remove clicked");
@@ -103,7 +100,6 @@ class Trip extends Component{
         const {
             handleChange,
             handleCreate,
-            handleKeyPress,
             handleRemove,
             handleOnDragEnd,
         } = this;
@@ -185,8 +181,7 @@ class Trip extends Component{
 
             <MapContainer searchPlace={input} handleCreate={handleCreate}/>
 
-            {/* <iframe title="gmap" src="http://map.naver.com/v5/directions/14130545.426978473,4516777.295707526,%EC%8B%A0%EC%B4%8C%EC%97%AD%202%ED%98%B8%EC%84%A0,240,SUBWAY_STATION/14142772.203249756,4510945.592839651,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%EA%B0%95%EB%82%A8%EC%84%9C%EC%B4%88%EA%B5%90%EC%9C%A1%EC%A7%80%EC%9B%90%EC%B2%AD,11630860,PLACE_POI/-/transit?c=14132969.0971959,4514456.1464421,12,0,0,0,dh" width="600" height="450"></iframe> */}
-
+            <TripInfo places={this.state.places}/>
 
         </>    
         )
