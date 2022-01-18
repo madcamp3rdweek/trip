@@ -32,3 +32,7 @@ yarn-error.log*
 /public/images/woljeongli.jpeg
 /public/images/camellia.jpeg
 /public/images/halla.jpeg
+
+#api keys
+.env
+
