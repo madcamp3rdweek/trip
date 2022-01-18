@@ -9,7 +9,7 @@ import './Pricing.css';
 
 function Pricing() {
     return (
-        <IconContext.Provider value = {{color:'#fff',size:64}}>
+        <IconContext.Provider value = {{color:'#FFF',size:64}}>
         <div>
             <div className="pricing__section">
                 <div className="pricing__wrapper">
@@ -19,44 +19,31 @@ function Pricing() {
                         className='pricing__container-card'>
                             <div className="pricing__container-cardInfo">
                                 <div className="icon">
-                                    <FaFire />>
+                                    <FaFire />
                                 </div>
+                                <Button buttonSize='btn--wide' buttonColor='primary'>Choose</Button>
                             </div>
-                            <h3>Gold</h3>
-                            <p>40000won</p>
-                            <ul className="pricing__container-features">
-                                <li>200 transactions</li>
-                            </ul>
-                            <Button buttonSize='btn--wide' buttonColor='primary'>Choose</Button>
+                            
+                            
                         </Link>
-                        <Link to="/sign-up"
-                        className='pricing__container-card'>
+                        <Link to="/sign-up" className='pricing__container-card'>
                             <div className="pricing__container-cardInfo">
                                 <div className="icon">
-                                    <BsXDiamondFill />>
+                                    <BsXDiamondFill />
                                 </div>
-                            </div>
-                            <h3>Starters</h3>
+                                <h3>Starters</h3>
                             <p>20000won</p>
                             <ul className="pricing__container-features">
                                 <li>100 transactions</li>
                             </ul>
                             <Button buttonSize='btn--wide' buttonColor='primary'>Choose</Button>
-                        </Link>
-                        <Link to="/sign-up"
-                        className='pricing__container-card'>
-                            <div className="pricing__container-cardInfo">
-                                <div className="icon">
-                                    <GiCrystalize />>
-                                </div>
                             </div>
-                            <h3>Diamond</h3>
-                            <p>50000won</p>
-                            <ul className="pricing__container-features">
-                                <li>600 transactions</li>
-                            </ul>
-                            <Button buttonSize='btn--wide' buttonColor='primary'>Choose</Button>
+                            
+
                         </Link>
+                        
+                        
+                        
                     </div>
                 </div>
             </div>

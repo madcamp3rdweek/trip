@@ -1,0 +1,166 @@
+.opacity{
+    opacity:0;
+}
+
+
+
+
+  .background_container{
+      z-index:-100;
+      background-color: black;
+      position:fixed;
+      display:flex;
+      align-items:center;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:100vh;
+      overflow:hidden;
+      flex-direction: row;
+  }
+
+  .media_container{
+      position:fixed;
+      flex:1;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:100vh;
+
+      display:flex;
+      justify-content:center;
+        
+  }
+
+
+.media_container_right{
+    position:fixed;
+    flex:1;
+    left:50px;
+    bottom:0;
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+      
+}
+
+
+
+  .bgmedia{
+    flex:1;
+    background:black;
+    opacity:1;
+    visibility:visible;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+      
+  }
+
+  .scroll_container{
+      overflow:hidden;
+  }
+
+  .step{
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      position:relative;
+      width:100%;
+      height:100%;
+      opacity:0;
+  }
+
+
+.step_content{
+    display :flex;
+    align-items: center;
+    /* justify-content:center; */
+    flex-direction:column;
+    height:150vh;
+    color:white;
+    font-weight:700;
+    font-size:60px;
+    text-shadow:2px 2px black;
+    opacity:1;
+    position:relative;
+    top:35%
+}
+
+.city_name{
+    position: relative;
+    display :flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction:column;
+    height:100vh;
+    color:white;
+    font-weight:700;
+    font-size:170px;
+    text-shadow:2px 2px black;
+    opacity:1;
+    z-index:10;
+
+}
+
+.city_logo{
+    width:50%;
+}
+
+.content1_step{
+    display :flex;
+    /* align-items: center; */
+    /* justify-content:center; */
+    flex-direction:column;
+    height:150vh;
+    color:white;
+    font-weight:700;
+    font-size:30px;
+    text-shadow:2px 2px black;
+    opacity:1;
+    position:relative;
+    top:10%;
+    left:10%;
+}
+
+.content_titles{
+    position:relative;
+    font-size:70px;
+    top:150px;
+    left:50px;
+}
+.content_details{
+    position:relative;
+    top:250px;
+    left: 150px;
+    width:60%;
+}
+
+.circle {
+    z-index:1;
+    position:relative;
+    top:200px;
+    left:100px;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.link_section{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    position:relative;
+    width:100%;
+    height:300vh;
+    opacity:0;
+    
+}
+
+.vertical_line{
+    stroke-dasharray: 5;
+}

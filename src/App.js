@@ -1,17 +1,21 @@
 import React from 'react';
 import './App.css';
+import ScrollToTop from './ScrollToTop';
 import Navbar from  './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './components/Footer';
-import Home from './components/pages/HomePage/Home';
+import NewHome from './components/pages/HomePage/NewHome';
+import City from './components/pages//City/City';
 
 function App() {
   
   return (
     <Router>
-      <Navbar />
+      <ScrollToTop/>
+      <Navbar/>
       <Switch>
-        <Route path='/' exact component={Home} />
+        <Route path='/' exact component={NewHome} />
+        <Route path='/city/:cityname' component={City} />
       </Switch>
       <Footer/>
     </Router>
