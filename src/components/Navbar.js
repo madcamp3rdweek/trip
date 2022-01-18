@@ -51,7 +51,7 @@ function Navbar() {
                                     Trip
                                 </Link> 
                             </li>
-                            <li className='nav-item'>
+                            {/* <li className='nav-item'>
                                 <Link to='/extra' className='nav-links' onClick={closeMobileMenu}>
                                     Extra
                                 </Link> 
@@ -70,7 +70,7 @@ function Navbar() {
                                     </Link>
                                 )}
 
-                            </li>
+                            </li> */}
 
                         </ul>
                     </div>

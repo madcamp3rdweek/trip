@@ -23,7 +23,7 @@ function HeroSection({
                             <p className={lightTextDesc?'home__hero-subtitle':'home__hero-subtitle dark'}>
                                 {description}
                             </p>
-                            <Link to="/sign-up">
+                            <Link to="/trip">
                                 <Button buttonSize='btn--wide' buttonColor='blue'>{buttonLabel}</Button>
                             </Link>
                         </div>
